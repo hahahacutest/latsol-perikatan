@@ -1,0 +1,2782 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Latihan Soal Hukum Perikatan</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:opsz,wght@8..60,300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0f1f3d;
+    --navy-mid: #1a2f5a;
+    --navy-light: #243a6b;
+    --gold: #c9a84c;
+    --gold-light: #e5c97e;
+    --cream: #f8f4ec;
+    --cream-dark: #ede8dc;
+    --white: #ffffff;
+    --gray-100: #f4f6f9;
+    --gray-200: #e8ecf2;
+    --gray-400: #9aaec8;
+    --gray-600: #5a7098;
+    --gray-800: #2d4570;
+    --success: #1a7a4a;
+    --success-bg: #e8f5ee;
+    --danger: #8b1a1a;
+    --danger-bg: #fdecea;
+    --warning: #7a4f1a;
+    --warning-bg: #fdf3e3;
+    --shadow-sm: 0 2px 8px rgba(15,31,61,0.08);
+    --shadow-md: 0 6px 24px rgba(15,31,61,0.14);
+    --shadow-lg: 0 16px 48px rgba(15,31,61,0.2);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  [data-theme="dark"] {
+    --navy: #0a1628;
+    --navy-mid: #0f1f3d;
+    --navy-light: #1a2f5a;
+    --gold: #e5c97e;
+    --gold-light: #f5dfa0;
+    --cream: #1e2d4a;
+    --cream-dark: #172238;
+    --white: #e8eef8;
+    --gray-100: #162035;
+    --gray-200: #1e2d4a;
+    --gray-400: #4a6080;
+    --gray-600: #7a9abf;
+    --gray-800: #b0c8e8;
+    --success: #2a9a6a;
+    --success-bg: #0f2a1e;
+    --danger: #c04040;
+    --danger-bg: #2a0f0f;
+    --warning: #b07a3a;
+    --warning-bg: #2a1e0a;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
+    --shadow-md: 0 6px 24px rgba(0,0,0,0.4);
+    --shadow-lg: 0 16px 48px rgba(0,0,0,0.5);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Serif 4', serif;
+    background: var(--cream);
+    color: var(--navy);
+    min-height: 100vh;
+    transition: background var(--transition), color var(--transition);
+    line-height: 1.6;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    background: var(--navy);
+    color: var(--white);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-md);
+  }
+
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    gap: 16px;
+  }
+
+  .header-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .header-logo {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 18px;
+    color: var(--navy);
+    flex-shrink: 0;
+  }
+
+  .header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .header-title small {
+    display: block;
+    font-family: 'Source Serif 4', serif;
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--gray-400);
+    letter-spacing: 0.05em;
+  }
+
+  .header-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .header-search {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .header-search input {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--white);
+    border-radius: 20px;
+    padding: 6px 14px 6px 36px;
+    font-family: 'Source Serif 4', serif;
+    font-size: 13px;
+    outline: none;
+    width: 200px;
+    transition: all var(--transition);
+  }
+
+  .header-search input::placeholder { color: var(--gray-400); }
+  .header-search input:focus {
+    background: rgba(255,255,255,0.15);
+    border-color: var(--gold);
+    width: 240px;
+  }
+
+  .header-search .search-icon {
+    position: absolute;
+    left: 12px;
+    color: var(--gray-400);
+    font-size: 14px;
+    pointer-events: none;
+  }
+
+  .btn-icon {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.06);
+    color: var(--white);
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    transition: all var(--transition);
+    flex-shrink: 0;
+  }
+
+  .btn-icon:hover {
+    background: rgba(201,168,76,0.2);
+    border-color: var(--gold);
+    color: var(--gold-light);
+  }
+
+  /* ─── TIMER BAR ─── */
+  .timer-bar {
+    background: var(--navy-mid);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 6px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--gray-400);
+  }
+
+  .timer-value {
+    color: var(--gold-light);
+    font-weight: 500;
+    font-size: 15px;
+  }
+
+  .timer-stat { display: flex; align-items: center; gap: 6px; }
+
+  /* ─── MAIN LAYOUT ─── */
+  .main-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 24px;
+    min-height: calc(100vh - 100px);
+  }
+
+  /* ─── SIDEBAR ─── */
+  .sidebar {
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .sidebar-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+    transition: background var(--transition), border-color var(--transition);
+  }
+
+  .sidebar-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--gold);
+  }
+
+  .category-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid transparent;
+    background: transparent;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-family: 'Source Serif 4', serif;
+    font-size: 14px;
+    color: var(--navy);
+    text-align: left;
+    transition: all var(--transition);
+    margin-bottom: 4px;
+  }
+
+  .category-btn:hover {
+    background: var(--gray-100);
+    border-color: var(--gray-200);
+  }
+
+  .category-btn.active {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+  }
+
+  .category-btn .cat-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .category-btn.active .cat-icon { background: rgba(255,255,255,0.12); }
+  .category-btn:not(.active) .cat-icon { background: var(--gray-100); }
+
+  .cat-count {
+    margin-left: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    background: var(--gray-100);
+    color: var(--gray-600);
+    padding: 2px 7px;
+    border-radius: 10px;
+    font-weight: 500;
+  }
+
+  .category-btn.active .cat-count {
+    background: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.8);
+  }
+
+  .score-display {
+    text-align: center;
+  }
+
+  .score-ring {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 16px;
+  }
+
+  .score-ring svg { transform: rotate(-90deg); }
+
+  .score-ring-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .score-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+  }
+
+  .score-label {
+    font-size: 10px;
+    color: var(--gray-600);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .score-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .score-stat-item {
+    background: var(--gray-100);
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+  }
+
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .stat-val.correct { color: var(--success); }
+  .stat-val.wrong { color: var(--danger); }
+  .stat-lbl { font-size: 11px; color: var(--gray-600); }
+
+  .btn-reset {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid var(--danger);
+    color: var(--danger);
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Source Serif 4', serif;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 12px;
+    transition: all var(--transition);
+  }
+
+  .btn-reset:hover { background: var(--danger); color: white; }
+
+  /* ─── CONTENT AREA ─── */
+  .content-area {}
+
+  /* ─── HERO ─── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    border-radius: var(--radius);
+    padding: 48px 40px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+    color: var(--white);
+    box-shadow: var(--shadow-md);
+  }
+
+  .hero::before {
+    content: '§';
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 220px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.03);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .hero-subtitle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+
+  .hero h1 span { color: var(--gold-light); }
+
+  .hero p {
+    font-size: 15px;
+    color: var(--gray-400);
+    max-width: 520px;
+    margin-bottom: 28px;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .hero-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .hero-stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gold-light);
+  }
+
+  .hero-stat-lbl {
+    font-size: 12px;
+    color: var(--gray-400);
+  }
+
+  /* ─── SECTION ─── */
+  .section {
+    display: none;
+  }
+
+  .section.active { display: block; }
+
+  .section-header {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+    border-left: 4px solid var(--gold);
+    transition: background var(--transition);
+  }
+
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--navy);
+  }
+
+  .section-header p {
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.7;
+  }
+
+  .chapter-summary {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    color: var(--white);
+  }
+
+  .chapter-summary h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--gold-light);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .chapter-summary ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 8px;
+  }
+
+  .chapter-summary ul li {
+    font-size: 13px;
+    color: var(--gray-400);
+    padding: 6px 10px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 6px;
+    border-left: 2px solid var(--gold);
+    line-height: 1.4;
+  }
+
+  /* ─── PROGRESS BAR ─── */
+  .progress-wrap {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: background var(--transition);
+  }
+
+  .progress-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--gray-600);
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .progress-bar-bg {
+    flex: 1;
+    height: 8px;
+    background: var(--gray-200);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--navy), var(--gold));
+    border-radius: 4px;
+    transition: width 0.4s ease;
+  }
+
+  .progress-pct {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    flex-shrink: 0;
+  }
+
+  /* ─── QUIZ CARD ─── */
+  .quiz-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+    transition: all var(--transition);
+    position: relative;
+  }
+
+  .quiz-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .q-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+
+  .q-num {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--gold);
+    background: var(--navy);
+    padding: 4px 12px;
+    border-radius: 20px;
+    flex-shrink: 0;
+  }
+
+  .q-topic {
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--gray-600);
+    background: var(--gray-100);
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.04em;
+  }
+
+  .q-pasal {
+    font-size: 11px;
+    color: var(--gold);
+    background: rgba(201,168,76,0.1);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .q-text {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--navy);
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+
+  /* ─── CHOICES ─── */
+  .choices {
+    display: grid;
+    gap: 10px;
+  }
+
+  .choice-btn {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 18px;
+    border: 1.5px solid var(--gray-200);
+    border-radius: 10px;
+    background: var(--gray-100);
+    cursor: pointer;
+    font-family: 'Source Serif 4', serif;
+    font-size: 14px;
+    color: var(--navy);
+    text-align: left;
+    transition: all var(--transition);
+    line-height: 1.5;
+  }
+
+  .choice-btn:hover:not(:disabled) {
+    border-color: var(--navy);
+    background: var(--cream-dark);
+    transform: translateX(4px);
+  }
+
+  .choice-btn:disabled { cursor: default; }
+
+  .choice-letter {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--gray-600);
+    flex-shrink: 0;
+    width: 22px;
+    line-height: 1.4;
+    transition: color var(--transition);
+  }
+
+  .choice-btn.correct {
+    border-color: var(--success);
+    background: var(--success-bg);
+  }
+
+  .choice-btn.correct .choice-letter { color: var(--success); }
+
+  .choice-btn.wrong {
+    border-color: var(--danger);
+    background: var(--danger-bg);
+  }
+
+  .choice-btn.wrong .choice-letter { color: var(--danger); }
+
+  .choice-btn.selected-correct {
+    border-color: var(--success);
+    background: var(--success-bg);
+    box-shadow: 0 0 0 3px rgba(26,122,74,0.15);
+  }
+
+  .choice-btn.selected-wrong {
+    border-color: var(--danger);
+    background: var(--danger-bg);
+    box-shadow: 0 0 0 3px rgba(139,26,26,0.15);
+  }
+
+  /* ─── FEEDBACK BOX ─── */
+  .feedback {
+    margin-top: 18px;
+    padding: 16px 20px;
+    border-radius: 10px;
+    border-left: 4px solid;
+    animation: slideDown 0.3s ease;
+    display: none;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .feedback.show { display: block; }
+
+  .feedback.correct-fb {
+    background: var(--success-bg);
+    border-color: var(--success);
+  }
+
+  .feedback.wrong-fb {
+    background: var(--danger-bg);
+    border-color: var(--danger);
+  }
+
+  .feedback-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .feedback.correct-fb .feedback-title { color: var(--success); }
+  .feedback.wrong-fb .feedback-title { color: var(--danger); }
+
+  .feedback-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--navy);
+  }
+
+  .feedback-pasal {
+    margin-top: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--gray-600);
+    padding: 6px 10px;
+    background: rgba(0,0,0,0.04);
+    border-radius: 6px;
+    display: inline-block;
+  }
+
+  /* ─── ESSAY CARD ─── */
+  .essay-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    border: 1px solid var(--gray-200);
+    margin-bottom: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition);
+  }
+
+  .essay-card:hover { box-shadow: var(--shadow-md); }
+
+  .essay-header {
+    padding: 20px 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    transition: background var(--transition);
+    user-select: none;
+  }
+
+  .essay-header:hover { background: var(--gray-100); }
+
+  .essay-num {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--gold);
+    flex-shrink: 0;
+    line-height: 1.3;
+  }
+
+  .essay-q-text {
+    flex: 1;
+    font-size: 15px;
+    line-height: 1.6;
+    font-weight: 500;
+    color: var(--navy);
+  }
+
+  .essay-q-meta {
+    display: flex;
+    gap: 6px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+  }
+
+  .essay-toggle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--gray-100);
+    border: 1px solid var(--gray-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--gray-600);
+    flex-shrink: 0;
+    transition: all var(--transition);
+    margin-top: 2px;
+  }
+
+  .essay-card.open .essay-toggle {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+    transform: rotate(180deg);
+  }
+
+  .essay-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .essay-card.open .essay-body { max-height: 2000px; }
+
+  .essay-answer {
+    padding: 20px 24px 24px;
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .essay-answer-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .essay-answer-text {
+    font-size: 14px;
+    line-height: 1.85;
+    color: var(--navy);
+  }
+
+  .essay-answer-text p { margin-bottom: 10px; }
+  .essay-answer-text strong { color: var(--navy-light); }
+  .essay-pasal-ref {
+    margin-top: 14px;
+    padding: 10px 16px;
+    background: var(--navy);
+    color: var(--gold-light);
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  /* ─── CASE CARD ─── */
+  .case-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    border: 1px solid var(--gray-200);
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition);
+  }
+
+  .case-card:hover { box-shadow: var(--shadow-md); }
+
+  .case-header {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    padding: 20px 24px;
+    color: var(--white);
+  }
+
+  .case-id {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .case-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .case-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .case-tag {
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(201,168,76,0.2);
+    color: var(--gold-light);
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(201,168,76,0.3);
+  }
+
+  .case-body { padding: 24px; }
+
+  .case-scenario {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--navy);
+    margin-bottom: 20px;
+    padding: 16px 20px;
+    background: var(--gray-100);
+    border-radius: 10px;
+    border-left: 3px solid var(--gold);
+  }
+
+  .case-question {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+
+  .btn-analyze {
+    padding: 12px 24px;
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Source Serif 4', serif;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-analyze:hover {
+    background: var(--navy-light);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(15,31,61,0.25);
+  }
+
+  .case-analysis {
+    margin-top: 20px;
+    display: none;
+    animation: slideDown 0.3s ease;
+  }
+
+  .case-analysis.show { display: block; }
+
+  .analysis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .analysis-item {
+    background: var(--gray-100);
+    border-radius: 10px;
+    padding: 14px 16px;
+    border-left: 3px solid var(--gold);
+  }
+
+  .analysis-item-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+
+  .analysis-item-val {
+    font-size: 14px;
+    color: var(--navy);
+    line-height: 1.5;
+  }
+
+  .analysis-section {
+    background: var(--gray-100);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+  }
+
+  .analysis-section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .analysis-section-text {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--navy);
+  }
+
+  .pasal-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .pasal-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    background: var(--navy);
+    color: var(--gold-light);
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+
+  /* ─── NAV BUTTONS ─── */
+  .nav-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+
+  .btn-nav {
+    padding: 11px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Source Serif 4', serif;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all var(--transition);
+  }
+
+  .btn-prev {
+    background: var(--white);
+    border: 1.5px solid var(--gray-200);
+    color: var(--navy);
+  }
+
+  .btn-prev:hover {
+    border-color: var(--navy);
+    background: var(--gray-100);
+  }
+
+  .btn-next {
+    background: var(--navy);
+    border: 1.5px solid var(--navy);
+    color: var(--white);
+  }
+
+  .btn-next:hover {
+    background: var(--navy-light);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .btn-shuffle {
+    background: var(--white);
+    border: 1.5px solid var(--gold);
+    color: var(--gold);
+  }
+
+  .btn-shuffle:hover {
+    background: var(--gold);
+    color: var(--white);
+  }
+
+  .btn-finish {
+    background: var(--gold);
+    border: 1.5px solid var(--gold);
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  .btn-finish:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* ─── POPUP ─── */
+  .popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10,22,40,0.8);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .popup-overlay.show { display: flex; }
+
+  .popup-box {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    animation: popIn 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  }
+
+  @keyframes popIn {
+    from { opacity: 0; transform: scale(0.85) translateY(30px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  .popup-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+    animation: bounce 0.6s ease 0.3s;
+  }
+
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .popup-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .popup-score-big {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin: 16px 0;
+  }
+
+  .popup-score-label {
+    font-size: 13px;
+    color: var(--gray-600);
+    margin-bottom: 20px;
+  }
+
+  .popup-stats {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin: 20px 0;
+    padding: 16px;
+    background: var(--gray-100);
+    border-radius: 12px;
+  }
+
+  .popup-stat { text-align: center; }
+  .popup-stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+  .popup-stat-val.g { color: var(--success); }
+  .popup-stat-val.r { color: var(--danger); }
+  .popup-stat-lbl { font-size: 12px; color: var(--gray-600); }
+
+  .popup-motivation {
+    font-size: 15px;
+    font-style: italic;
+    color: var(--gray-600);
+    margin: 16px 0 24px;
+    line-height: 1.6;
+  }
+
+  .btn-close-popup {
+    width: 100%;
+    padding: 14px;
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    transition: all var(--transition);
+  }
+
+  .btn-close-popup:hover {
+    background: var(--navy-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--navy);
+    color: var(--gray-400);
+    text-align: center;
+    padding: 24px;
+    font-size: 13px;
+    margin-top: 40px;
+  }
+
+  footer span { color: var(--gold); }
+
+  /* ─── HIDDEN ─── */
+  .hidden { display: none !important; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .main-wrap {
+      grid-template-columns: 1fr;
+      padding: 16px;
+    }
+
+    .sidebar { position: static; }
+    .hero { padding: 32px 24px; }
+    .hero::before { display: none; }
+    .header-search input { width: 140px; }
+    .header-search input:focus { width: 160px; }
+    .analysis-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .header-search { display: none; }
+    .quiz-card { padding: 20px 18px; }
+    .hero h1 { font-size: 24px; }
+    .hero-stats { gap: 16px; }
+  }
+
+  /* Dark mode adjustments */
+  [data-theme="dark"] .choice-btn {
+    background: var(--gray-200);
+    border-color: var(--gray-400);
+    color: var(--white);
+  }
+
+  [data-theme="dark"] .choice-btn:hover:not(:disabled) {
+    background: var(--navy-light);
+    border-color: var(--gold);
+  }
+
+  [data-theme="dark"] .section-header,
+  [data-theme="dark"] .quiz-card,
+  [data-theme="dark"] .essay-card,
+  [data-theme="dark"] .case-card,
+  [data-theme="dark"] .sidebar-card,
+  [data-theme="dark"] .progress-wrap {
+    background: var(--gray-200);
+    border-color: var(--gray-400);
+  }
+
+  [data-theme="dark"] .essay-header:hover { background: var(--navy-light); }
+
+  [data-theme="dark"] .score-stat-item,
+  [data-theme="dark"] .analysis-item,
+  [data-theme="dark"] .analysis-section,
+  [data-theme="dark"] .case-scenario,
+  [data-theme="dark"] .essay-answer,
+  [data-theme="dark"] .cat-count,
+  [data-theme="dark"] .q-topic,
+  [data-theme="dark"] .progress-bar-bg {
+    background: var(--navy-light);
+  }
+
+  [data-theme="dark"] .score-num,
+  [data-theme="dark"] .q-text,
+  [data-theme="dark"] .essay-q-text,
+  [data-theme="dark"] .case-question,
+  [data-theme="dark"] .essay-answer-text,
+  [data-theme="dark"] .analysis-item-val,
+  [data-theme="dark"] .analysis-section-text,
+  [data-theme="dark"] .case-scenario,
+  [data-theme="dark"] .feedback-text { color: var(--white); }
+
+  [data-theme="dark"] .btn-prev {
+    background: var(--gray-200);
+    border-color: var(--gray-400);
+    color: var(--white);
+  }
+
+  [data-theme="dark"] .btn-prev:hover { background: var(--navy-light); }
+
+  [data-theme="dark"] .popup-box { background: var(--gray-200); }
+  [data-theme="dark"] .popup-title { color: var(--white); }
+  [data-theme="dark"] .popup-stats { background: var(--navy-light); }
+</style>
+</head>
+<body>
+
+<!-- ─── HEADER ─── -->
+<header>
+  <div class="header-inner">
+    <div class="header-brand">
+      <div class="header-logo">§</div>
+      <div class="header-title">
+        Hukum Perikatan
+        <small>Latihan Soal Interaktif · KUHPerdata</small>
+      </div>
+    </div>
+    <div class="header-controls">
+      <div class="header-search">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Cari soal..." oninput="handleSearch(this.value)">
+      </div>
+      <button class="btn-icon" onclick="toggleDark()" title="Dark Mode" id="darkBtn">🌙</button>
+      <button class="btn-icon" onclick="showFinishPopup()" title="Lihat Skor" id="scoreBtn">🏆</button>
+    </div>
+  </div>
+  <div class="timer-bar">
+    <div class="timer-stat">⏱️ Waktu: <span class="timer-value" id="timerDisplay">00:00:00</span></div>
+    <div class="timer-stat">📝 Skor PG: <span class="timer-value" id="headerScore">0/0</span></div>
+    <div class="timer-stat">✅ Benar: <span class="timer-value" id="headerCorrect">0</span></div>
+    <div class="timer-stat">❌ Salah: <span class="timer-value" id="headerWrong">0</span></div>
+  </div>
+</header>
+
+<!-- ─── MAIN ─── -->
+<div class="main-wrap">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-title">Kategori Soal</div>
+      <button class="category-btn active" onclick="showSection('pg', this)">
+        <div class="cat-icon">📝</div>
+        Pilihan Ganda
+        <span class="cat-count">40</span>
+      </button>
+      <button class="category-btn" onclick="showSection('essay', this)">
+        <div class="cat-icon">✍️</div>
+        Essay
+        <span class="cat-count">20</span>
+      </button>
+      <button class="category-btn" onclick="showSection('kasus', this)">
+        <div class="cat-icon">⚖️</div>
+        Studi Kasus
+        <span class="cat-count">15</span>
+      </button>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sidebar-title">Skor Anda</div>
+      <div class="score-display">
+        <div class="score-ring">
+          <svg width="100" height="100" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="42" fill="none" stroke="#e8ecf2" stroke-width="10"/>
+            <circle cx="50" cy="50" r="42" fill="none" stroke="#c9a84c" stroke-width="10"
+              stroke-dasharray="264" stroke-dashoffset="264" stroke-linecap="round"
+              id="scoreCircle" style="transition: stroke-dashoffset 0.6s ease"/>
+          </svg>
+          <div class="score-ring-text">
+            <div class="score-num" id="scorePercent">0%</div>
+            <div class="score-label">Akurasi</div>
+          </div>
+        </div>
+        <div class="score-stats">
+          <div class="score-stat-item">
+            <div class="stat-val correct" id="sideCorrect">0</div>
+            <div class="stat-lbl">Benar</div>
+          </div>
+          <div class="score-stat-item">
+            <div class="stat-val wrong" id="sideWrong">0</div>
+            <div class="stat-lbl">Salah</div>
+          </div>
+        </div>
+        <button class="btn-reset" onclick="resetAll()">↺ Reset Semua</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <div class="content-area">
+    <!-- HERO -->
+    <div class="hero" id="heroSection">
+      <div class="hero-subtitle">✦ Fakultas Hukum · KUHPerdata ✦</div>
+      <h1>Latihan Soal <span>Hukum Perikatan</span></h1>
+      <p>Platform latihan soal interaktif berbasis materi kuliah Hukum Perdata. Pilihan ganda, essay, dan studi kasus terintegrasi dengan analisis hukum mendalam.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-val">40</div>
+          <div class="hero-stat-lbl">Pilihan Ganda</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-val">20</div>
+          <div class="hero-stat-lbl">Essay</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-val">15</div>
+          <div class="hero-stat-lbl">Studi Kasus</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-val">17</div>
+          <div class="hero-stat-lbl">Topik Materi</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── PILIHAN GANDA ─── -->
+    <div class="section active" id="section-pg">
+      <div class="section-header">
+        <h2>📝 Pilihan Ganda</h2>
+        <p>40 soal pilihan ganda mencakup seluruh materi Hukum Perikatan. Pilih jawaban yang paling tepat. Feedback dan penjelasan pasal akan muncul setelah menjawab.</p>
+      </div>
+
+      <div class="chapter-summary">
+        <h3>📚 Ringkasan Materi Perikatan</h3>
+        <ul>
+          <li><strong>Ps. 1233</strong> – Perikatan lahir dari UU atau perjanjian</li>
+          <li><strong>Ps. 1313</strong> – Perjanjian = perbuatan mengikat diri</li>
+          <li><strong>Ps. 1320</strong> – 4 syarat sah perjanjian</li>
+          <li><strong>Ps. 1338</strong> – Asas kebebasan berkontrak & itikad baik</li>
+          <li><strong>Ps. 1365</strong> – Perbuatan melawan hukum</li>
+          <li><strong>Ps. 1381</strong> – 9 cara hapusnya perikatan</li>
+          <li><strong>Ps. 1243</strong> – Syarat klaim ganti rugi</li>
+          <li><strong>Ps. 1244</strong> – Overmacht/keadaan memaksa</li>
+          <li><strong>Ps. 1413</strong> – Novasi (pembaruan hutang)</li>
+          <li><strong>Ps. 1400</strong> – Subrogasi</li>
+          <li><strong>Pasal 613</strong> – Cessie (pengalihan piutang)</li>
+        </ul>
+      </div>
+
+      <div class="progress-wrap">
+        <div class="progress-label" id="pgProgressLabel">Soal 1 dari 40</div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="pgProgressFill" style="width:0%"></div>
+        </div>
+        <div class="progress-pct" id="pgProgressPct">0%</div>
+      </div>
+
+      <div id="pgContainer"></div>
+
+      <div class="nav-wrap">
+        <button class="btn-nav btn-prev" onclick="navigatePG(-1)">← Sebelumnya</button>
+        <button class="btn-nav btn-shuffle" onclick="shuffleQuestions()">🔀 Acak Soal</button>
+        <button class="btn-nav btn-finish" onclick="showFinishPopup()">🏆 Lihat Skor</button>
+        <button class="btn-nav btn-next" onclick="navigatePG(1)">Selanjutnya →</button>
+      </div>
+    </div>
+
+    <!-- ─── ESSAY ─── -->
+    <div class="section" id="section-essay">
+      <div class="section-header">
+        <h2>✍️ Essay</h2>
+        <p>20 soal essay dengan jawaban komprehensif. Baca pertanyaan, pikirkan jawaban Anda, lalu klik "Lihat Jawaban" untuk membandingkan dengan jawaban model. Cocok untuk persiapan ujian tertulis.</p>
+      </div>
+      <div id="essayContainer"></div>
+    </div>
+
+    <!-- ─── STUDI KASUS ─── -->
+    <div class="section" id="section-kasus">
+      <div class="section-header">
+        <h2>⚖️ Studi Kasus</h2>
+        <p>15 studi kasus hukum realistis dalam format yang digunakan di Fakultas Hukum. Setiap kasus dilengkapi analisis hukum lengkap, identifikasi para pihak, bentuk pelanggaran, dan solusi hukum berdasarkan KUHPerdata.</p>
+      </div>
+      <div id="kasusContainer"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── POPUP ─── -->
+<div class="popup-overlay" id="popupOverlay">
+  <div class="popup-box">
+    <div class="popup-icon" id="popupIcon">🏆</div>
+    <div class="popup-title" id="popupTitle">Hasil Latihan Anda</div>
+    <div class="popup-score-big" id="popupScore">0%</div>
+    <div class="popup-score-label">Akurasi Pilihan Ganda</div>
+    <div class="popup-stats">
+      <div class="popup-stat">
+        <div class="popup-stat-val g" id="popupCorrect">0</div>
+        <div class="popup-stat-lbl">Benar</div>
+      </div>
+      <div class="popup-stat">
+        <div class="popup-stat-val r" id="popupWrong">0</div>
+        <div class="popup-stat-lbl">Salah</div>
+      </div>
+      <div class="popup-stat">
+        <div class="popup-stat-val" id="popupTotal" style="color:var(--gold)">0</div>
+        <div class="popup-stat-lbl">Dijawab</div>
+      </div>
+    </div>
+    <div class="popup-motivation" id="popupMotivation">Terus belajar dan semangat!</div>
+    <button class="btn-close-popup" onclick="closePopup()">Tutup & Lanjutkan Belajar</button>
+  </div>
+</div>
+
+<footer>
+  <strong>Materi Hukum Perikatan</strong> — <span>Mahasiswa Fakultas Hukum</span> · Berbasis KUHPerdata (BW) Indonesia · &copy; 2025
+</footer>
+
+<script>
+// ═══════════════════════════════════════════════════
+// DATA SOAL
+// ═══════════════════════════════════════════════════
+
+const pgData = [
+  {
+    q: "Menurut Pasal 1233 KUHPerdata, perikatan dapat lahir dari dua sumber, yaitu...",
+    choices: ["Undang-undang dan perjanjian", "Perjanjian dan keputusan hakim", "Undang-undang dan perbuatan melawan hukum", "Kebiasaan dan undang-undang"],
+    answer: 0,
+    topic: "Sumber Perikatan",
+    pasal: "Ps. 1233 BW",
+    explanation: "Pasal 1233 KUHPerdata dengan tegas menyatakan bahwa perikatan dilahirkan baik karena suatu persetujuan (perjanjian) maupun karena undang-undang. Perikatan yang bersumber dari undang-undang dibagi lagi menjadi yang lahir dari undang-undang semata dan dari undang-undang karena perbuatan manusia (perbuatan sah dan perbuatan melawan hukum)."
+  },
+  {
+    q: "Syarat sah perjanjian menurut Pasal 1320 KUHPerdata yang termasuk syarat subjektif adalah...",
+    choices: ["Suatu hal tertentu dan causa yang halal", "Sepakat dan kecakapan untuk membuat perjanjian", "Causa halal dan kecakapan", "Sepakat dan suatu hal tertentu"],
+    answer: 1,
+    topic: "Syarat Sah Perjanjian",
+    pasal: "Ps. 1320 BW",
+    explanation: "Syarat subjektif adalah syarat yang menyangkut subjek hukum (para pihak dalam perjanjian), yaitu: (1) Sepakat untuk mengikatkan diri, dan (2) Kecakapan untuk membuat perikatan. Apabila syarat subjektif tidak dipenuhi, perjanjian dapat dibatalkan (vernietigbaar) oleh pihak yang berkepentingan, namun tetap mengikat selama belum dimintakan pembatalan."
+  },
+  {
+    q: "Akibat hukum apabila syarat objektif dalam Pasal 1320 KUHPerdata tidak terpenuhi adalah...",
+    choices: ["Perjanjian dapat dibatalkan (vernietigbaar)", "Perjanjian batal demi hukum (nietig)", "Perjanjian tetap berlaku penuh", "Perjanjian dapat diperbaiki oleh para pihak"],
+    answer: 1,
+    topic: "Syarat Sah Perjanjian",
+    pasal: "Ps. 1320 BW",
+    explanation: "Apabila syarat objektif (suatu hal tertentu dan causa yang halal) tidak dipenuhi, maka perjanjian batal demi hukum (nietig/nietigbaar). Artinya, sejak semula dianggap tidak pernah ada perjanjian dan tidak mempunyai akibat hukum sama sekali. Ini berbeda dengan syarat subjektif yang hanya mengakibatkan perjanjian dapat dibatalkan (vernietigbaar)."
+  },
+  {
+    q: "Seorang debitur dikatakan melakukan wanprestasi apabila...",
+    choices: ["Tidak dapat memenuhi prestasi karena gempa bumi", "Memenuhi prestasi namun terlambat", "Tidak melaksanakan prestasi sama sekali atau terlambat atau keliru dalam pelaksanaan", "Mengalami kebangkrutan usaha"],
+    answer: 2,
+    topic: "Wanprestasi",
+    pasal: "Ps. 1238 BW",
+    explanation: "Wanprestasi dapat berupa: (1) Tidak melaksanakan prestasi sama sekali; (2) Melaksanakan prestasi tetapi terlambat; (3) Melaksanakan prestasi namun tidak sebagaimana mestinya/keliru; (4) Melakukan sesuatu yang dilarang oleh perjanjian. Sebelum dapat diklaim wanprestasi, debitur harus telah dinyatakan lalai (ingebrekestelling/somasi) kecuali untuk perjanjian dengan batas waktu tertentu."
+  },
+  {
+    q: "Asas yang menyatakan bahwa perjanjian yang dibuat secara sah berlaku sebagai undang-undang bagi para pihak yang membuatnya dikenal sebagai asas...",
+    choices: ["Asas Konsensuil", "Asas Itikad Baik", "Asas Kebebasan Berkontrak", "Asas Pacta Sunt Servanda"],
+    answer: 3,
+    topic: "Asas Perjanjian",
+    pasal: "Ps. 1338 ayat (1) BW",
+    explanation: "Asas Pacta Sunt Servanda tercermin dalam Pasal 1338 ayat (1) KUHPerdata: 'Semua perjanjian yang dibuat secara sah berlaku sebagai undang-undang bagi mereka yang membuatnya.' Asas ini berarti perjanjian mengikat para pihak dan harus dilaksanakan. Perjanjian tidak dapat dibatalkan secara sepihak tanpa persetujuan pihak lainnya."
+  },
+  {
+    q: "Overmacht atau keadaan memaksa dalam Pasal 1244 KUHPerdata mensyaratkan hal-hal berikut, KECUALI...",
+    choices: ["Peristiwa tidak dapat diduga sebelumnya oleh debitur", "Peristiwa tidak dapat dipertanggungjawabkan kepada debitur", "Peristiwa terjadi sebelum debitur lalai", "Peristiwa disebabkan oleh kelalaian debitur sendiri"],
+    answer: 3,
+    topic: "Overmacht",
+    pasal: "Ps. 1244-1245 BW",
+    explanation: "Syarat-syarat overmacht (force majeure): (1) Adanya halangan untuk memenuhi prestasi; (2) Halangan tersebut tidak dapat diduga sebelumnya; (3) Tidak dapat dipertanggungjawabkan kepada debitur; (4) Tidak ada unsur itikad buruk. Jika halangan disebabkan oleh kelalaian debitur sendiri, maka tidak dapat dikatakan overmacht – justru merupakan wanprestasi."
+  },
+  {
+    q: "Subrogasi dalam Pasal 1400 KUHPerdata adalah...",
+    choices: ["Pembaruan hutang dengan mengganti kreditur lama dengan kreditur baru", "Penggantian kedudukan kreditur oleh pihak ketiga yang telah membayar hutang debitur", "Pemindahan hak piutang melalui akta otentik", "Percampuran hutang pada satu orang"],
+    answer: 1,
+    topic: "Subrogasi",
+    pasal: "Ps. 1400 BW",
+    explanation: "Subrogasi adalah penggantian hak-hak kreditur oleh pihak ketiga yang membayar lunas hutang debitur kepada kreditur. Setelah membayar, pihak ketiga tersebut menggantikan posisi kreditur lama dan berhak menagih kepada debitur. Subrogasi dapat terjadi karena perjanjian (Ps. 1401 BW) atau karena undang-undang (Ps. 1402 BW). Hak-hak accessoir ikut berpindah kepada kreditur baru."
+  },
+  {
+    q: "Perbedaan utama antara novasi dengan subrogasi adalah...",
+    choices: ["Novasi menghapus perjanjian lama; subrogasi mempertahankan perjanjian pokok", "Novasi dapat dilakukan secara lisan; subrogasi harus tertulis", "Novasi hak accessoir ikut berpindah; subrogasi tidak", "A dan B benar"],
+    answer: 3,
+    topic: "Novasi vs Subrogasi",
+    pasal: "Ps. 1400, 1413 BW",
+    explanation: "Perbedaan novasi dan subrogasi: (1) Novasi: perjanjian lama hapus diganti perjanjian baru; subrogasi perjanjian pokok tetap berlaku. (2) Novasi bisa lisan maupun tertulis; subrogasi harus dinyatakan secara tegas. (3) Novasi: hak accessoir tidak ikut berpindah kecuali diperjanjikan; subrogasi: hak accessoir ikut berpindah ke kreditur baru. (4) Novasi bisa mengganti debitur dan kreditur; subrogasi hanya mengganti kreditur."
+  },
+  {
+    q: "Cessie menurut Pasal 613 KUHPerdata adalah cara pemindahan...",
+    choices: ["Hak kebendaan bergerak bertubuh secara fisik", "Hak piutang atas nama dan kebendaan tak bertubuh", "Hak atas tanah melalui akta PPAT", "Kewajiban debitur kepada pihak lain"],
+    answer: 1,
+    topic: "Cessie",
+    pasal: "Ps. 613 BW",
+    explanation: "Cessie adalah cara penyerahan (levering) hak piutang atas nama (vorderingen op naam) dan kebendaan tak bertubuh (onlichamelijke zaken). Cessie dilakukan dengan membuat akta cessie (bisa otentik atau di bawah tangan) yang kemudian diberitahukan (betekend) kepada debitur atau diakui oleh debitur. Tanpa cessie, meski ada perjanjian jual beli piutang, peralihan hak belum terjadi."
+  },
+  {
+    q: "Perbuatan Melawan Hukum (PMH) menurut Pasal 1365 KUHPerdata mensyaratkan adanya...",
+    choices: ["Perjanjian antara para pihak yang dilanggar", "Perbuatan melawan hukum, kesalahan, kerugian, dan hubungan kausalitas", "Somasi dan ingkar janji dari debitur", "Wanprestasi yang menimbulkan kerugian"],
+    answer: 1,
+    topic: "Perbuatan Melawan Hukum",
+    pasal: "Ps. 1365 BW",
+    explanation: "Unsur-unsur PMH berdasarkan Pasal 1365 KUHPerdata: (1) Harus ada perbuatan (berbuat atau tidak berbuat); (2) Perbuatan itu melawan hukum (bertentangan dengan hak subjektif orang lain, kewajiban hukum, kesusilaan, dan kepatutan dalam masyarakat); (3) Ada kesalahan (schuld); (4) Ada kerugian yang ditimbulkan; (5) Ada hubungan kausal antara perbuatan dan kerugian."
+  },
+  {
+    q: "Novasi objektif adalah novasi yang terjadi karena...",
+    choices: ["Penggantian kreditur dengan kreditur baru", "Penggantian debitur dengan debitur baru", "Penggantian objek/isi perikatan yang berbeda sifatnya dari perikatan lama", "Penggantian semua pihak dalam perjanjian"],
+    answer: 2,
+    topic: "Novasi",
+    pasal: "Ps. 1413-1424 BW",
+    explanation: "Novasi objektif (novation reelle) terjadi apabila perikatan yang baru berlainan sifatnya dari perikatan yang lama – yaitu objek atau prestasi yang diubah. Contoh: utang uang senilai Rp100 juta diganti dengan kewajiban menyerahkan barang tertentu. Novasi subjektif pasif terjadi jika debitur diganti (delegasi/ekspromisi), sedangkan novasi subjektif aktif jika kreditur diganti."
+  },
+  {
+    q: "Hapusnya perikatan karena 'percampuran hutang' (confusio) terjadi apabila...",
+    choices: ["Kreditur membebaskan debitur dari kewajibannya", "Barang yang menjadi objek perjanjian musnah", "Kedudukan kreditur dan debitur berada pada satu orang yang sama", "Debitur dan kreditur membuat perjanjian baru"],
+    answer: 2,
+    topic: "Hapusnya Perikatan",
+    pasal: "Ps. 1436-1437 BW",
+    explanation: "Confusio (percampuran hutang) terjadi demi hukum ketika kedudukan kreditur dan debitur bertemu pada satu orang. Ini paling sering terjadi karena pewarisan: misalnya seorang ahli waris yang memiliki utang kepada pewaris – saat pewaris meninggal, ia mewarisi piutang pewaris tersebut sehingga ia sekaligus menjadi kreditur dan debitur, dan utangnya hapus demi hukum."
+  },
+  {
+    q: "Syarat dapat diperjumpakan hutang (kompensasi) menurut KUHPerdata adalah...",
+    choices: ["Dua orang saling berutang, prestasi serupa dan sudah dapat ditagih", "Adanya persetujuan dua pihak untuk menghapus utang masing-masing", "Salah satu pihak mengajukan permohonan ke pengadilan", "Utang-utang tersebut memiliki jaminan kebendaan"],
+    answer: 0,
+    topic: "Kompensasi",
+    pasal: "Ps. 1425-1435 BW",
+    explanation: "Syarat kompensasi (perjumpaan hutang): (1) Dua orang saling berutang satu sama lain; (2) Prestasi/objek perikatan serupa (uang dengan uang, atau barang yang dapat dihabiskan dari jenis yang sama); (3) Kedua piutang sudah dapat ditagih (opeisbaar); (4) Kompensasi tidak boleh merugikan pihak ketiga (Ps. 1434 BW). Kompensasi terjadi demi hukum (ipso jure) meski tanpa sepengetahuan para pihak."
+  },
+  {
+    q: "Actio Pauliana dalam Pasal 1341 KUHPerdata adalah...",
+    choices: ["Hak debitur untuk membatalkan perjanjian yang merugikan", "Hak kreditur untuk menuntut pembatalan perbuatan hukum debitur yang merugikan kreditur", "Hak hakim untuk membatalkan perjanjian yang bertentangan hukum", "Hak notaris untuk menolak membuat akta"],
+    answer: 1,
+    topic: "Actio Pauliana",
+    pasal: "Ps. 1341 BW",
+    explanation: "Actio Pauliana adalah hak kreditur untuk meminta pembatalan terhadap perbuatan hukum debitur yang tidak diwajibkan dan merugikan kreditur. Untuk berhasil, kreditur harus membuktikan: (1) Ada perbuatan hukum yang merugikan kreditur; (2) Perbuatan tersebut tidak diwajibkan (tidak ada kewajiban hukum untuk melakukannya); (3) Debitur dan pihak ketiga mengetahui bahwa perbuatan itu merugikan kreditur. Tenggang waktu tuntutan adalah 5 tahun (Ps. 1454 BW)."
+  },
+  {
+    q: "Perjanjian yang mengandung unsur paksaan psikis (dwang), kekhilafan (dwaling), atau penipuan (bedrog) mengakibatkan...",
+    choices: ["Perjanjian batal demi hukum", "Perjanjian dapat dibatalkan dalam jangka waktu 5 tahun", "Perjanjian tetap berlaku penuh dan tidak dapat diganggu gugat", "Perjanjian hapus secara otomatis setelah 1 tahun"],
+    answer: 1,
+    topic: "Cacat Kehendak",
+    pasal: "Ps. 1449, 1454 BW",
+    explanation: "Cacat kehendak (wilsgebreken) seperti paksaan (dwang), kekhilafan (dwaling), dan penipuan (bedrog) merupakan kekurangan pada syarat subjektif 'sepakat.' Akibat hukumnya adalah perjanjian dapat dibatalkan (vernietigbaar), bukan batal demi hukum. Pihak yang dirugikan dapat mengajukan tuntutan pembatalan dalam tenggang waktu 5 tahun sejak ditemukannya cacat kehendak tersebut (Pasal 1454 BW)."
+  },
+  {
+    q: "Menurut asas kepribadian dalam Pasal 1315 jo. 1340 KUHPerdata, suatu perjanjian pada prinsipnya...",
+    choices: ["Mengikat semua orang yang berada di wilayah hukum yang sama", "Hanya mengikat para pihak yang membuatnya dan ahli warisnya", "Mengikat pihak ketiga yang mempunyai kepentingan hukum", "Berlaku seperti undang-undang bagi seluruh masyarakat"],
+    answer: 1,
+    topic: "Asas Kepribadian",
+    pasal: "Ps. 1315, 1340 BW",
+    explanation: "Asas kepribadian (persoonlijkheid) dalam Ps. 1315 BW menyatakan bahwa perjanjian hanya mengikat para pihak yang membuatnya. Pengecualiannya: (1) Ahli waris yang mewarisi hak dan kewajiban (Ps. 1318 BW); (2) Pihak ketiga yang memperoleh hak daripadanya (Ps. 1317 BW – derden beding); (3) Perjanjian jual beli tidak memutus sewa menyewa, sehingga pembeli baru terikat syarat sewa yang berlaku (Ps. 1576 BW)."
+  },
+  {
+    q: "Konsinyasi (penawaran pembayaran diikuti penitipan) diatur dalam Pasal 1404-1412 KUHPerdata dan hanya dapat dilakukan untuk...",
+    choices: ["Semua jenis prestasi dalam perjanjian", "Hutang uang dan hutang benda bergerak saja", "Perjanjian kerja dan perjanjian sewa menyewa", "Tanah dan bangunan saja"],
+    answer: 1,
+    topic: "Konsinyasi",
+    pasal: "Ps. 1404-1412 BW",
+    explanation: "Konsinyasi adalah upaya hukum ketika kreditur menolak menerima pembayaran dari debitur. Konsinyasi hanya dimungkinkan untuk: (1) Hutang uang; (2) Hutang benda bergerak. Prosedurnya: debitur terlebih dahulu menawarkan pembayaran (penawaran nyata), dan jika ditolak, menitipkan objek pembayaran melalui bantuan notaris dan juru sita. Segala biaya yang timbul dibebankan kepada kreditur yang menolak."
+  },
+  {
+    q: "Ganti rugi dalam wanprestasi berdasarkan Pasal 1243 KUHPerdata meliputi...",
+    choices: ["Hanya kerugian materil yang dapat dibuktikan dengan kuitansi", "Kerugian yang diderita (damnum emergens) dan keuntungan yang seharusnya diperoleh (lucrum cessans)", "Biaya-biaya hukum yang dikeluarkan untuk berperkara", "Seluruh aset debitur yang dapat disita"],
+    answer: 1,
+    topic: "Ganti Rugi",
+    pasal: "Ps. 1243-1252 BW",
+    explanation: "Komponen ganti rugi dalam perjanjian: (1) Biaya (kosten) – pengeluaran yang telah dikeluarkan kreditur; (2) Rugi (schade/damnum emergens) – kerugian yang nyata diderita; (3) Bunga (interest/lucrum cessans) – keuntungan yang gagal diperoleh akibat wanprestasi. Namun, ganti rugi harus dapat diduga (voorzienbaar) pada saat perjanjian dibuat dan harus ada hubungan kausal langsung dengan wanprestasi (Ps. 1248 BW)."
+  },
+  {
+    q: "Perikatan tanggung renteng (hoofdelijke verbintenis) memiliki konsekuensi hukum bahwa...",
+    choices: ["Masing-masing debitur hanya wajib membayar bagiannya sendiri", "Kreditur dapat menagih seluruh hutang kepada salah satu debitur saja", "Para kreditur harus menagih hutang secara bersama-sama", "Hutang terbagi rata di antara para debitur secara otomatis"],
+    answer: 1,
+    topic: "Tanggung Renteng",
+    pasal: "Ps. 1278-1295 BW",
+    explanation: "Dalam perikatan tanggung renteng (solidaire verbintenis), kreditur berhak menagih seluruh prestasi dari salah satu debitur atau semua debitur sekaligus. Jika salah satu debitur membayar seluruh hutang, ia mengambil alih posisi kreditur terhadap debitur-debitur lainnya (subrogasi demi hukum – Ps. 1402 BW). Contoh: A, B, C menjadi debitur tanggung renteng – X sebagai kreditur dapat menagih semua hutang kepada A saja."
+  },
+  {
+    q: "Delegasi dalam konteks novasi subjektif pasif adalah...",
+    choices: ["Kreditur aktif mencari kreditur baru tanpa persetujuan debitur", "Debitur mencarikan pihak ketiga sebagai debitur baru yang ditawarkan kepada kreditur", "Pengalihan hak tagih melalui akta cessie", "Pembebasan debitur dari kewajiban oleh kreditur"],
+    answer: 1,
+    topic: "Delegasi",
+    pasal: "Ps. 1413-1418 BW",
+    explanation: "Delegasi terjadi ketika debitur (A) aktif mencarikan pihak ketiga (C) untuk dijadikan debitur baru dan menawarkannya kepada kreditur (B). Setelah B menyetujui, maka A, B, dan C bersama-sama membuat perjanjian baru dimana C mengambil alih kewajiban A kepada B. Berbeda dengan ekspromisi dimana kreditur yang aktif mencari debitur baru tanpa keterlibatan debitur lama."
+  },
+  {
+    q: "Menurut Pasal 1338 ayat (3) KUHPerdata, perjanjian harus dilaksanakan dengan...",
+    choices: ["Asas kebebasan berkontrak", "Itikad baik (te goeder trouw)", "Asas konsensualisme", "Prinsip keseimbangan prestasi"],
+    answer: 1,
+    topic: "Asas Perjanjian",
+    pasal: "Ps. 1338 ayat (3) BW",
+    explanation: "Pasal 1338 ayat (3) KUHPerdata mengatur asas itikad baik (goede trouw): perjanjian harus dilaksanakan dengan itikad baik. Itikad baik memiliki dua dimensi: (1) Subjektif – kejujuran dan kepatutan dalam bersikap; (2) Objektif – pelaksanaan perjanjian sesuai norma kepatutan yang berlaku dalam masyarakat. Asas ini juga digunakan hakim untuk mengkoreksi perjanjian yang tidak adil."
+  },
+  {
+    q: "Risiko dalam perjanjian timbal balik (bilateral) berkaitan dengan...",
+    choices: ["Siapa yang menanggung kerugian akibat musnahnya objek perikatan karena keadaan memaksa", "Kewajiban salah satu pihak untuk membayar denda keterlambatan", "Tanggung jawab debitur atas kerugian yang timbul dari wanprestasi", "Pembagian keuntungan dan kerugian dalam persekutuan"],
+    answer: 0,
+    topic: "Risiko",
+    pasal: "Ps. 1444-1445 BW",
+    explanation: "Risiko adalah kewajiban memikul kerugian jika terjadi peristiwa di luar kesalahan salah satu pihak. Dalam perjanjian sepihak (unilateral), risiko ada pada kreditur. Dalam perjanjian timbal balik (bilateral): jika objek musnah sebelum diserahkan karena overmacht, maka menurut Ps. 1444 BW yang menanggung risiko adalah kreditur (yang berhak menerima). Asas ini berbeda untuk perjanjian jual beli (Ps. 1460 BW) dan sewa menyewa."
+  },
+  {
+    q: "Perjanjian tidak bernama (innominaat contract) adalah...",
+    choices: ["Perjanjian yang tidak sah karena tidak diatur dalam undang-undang", "Perjanjian yang lahir dari kebiasaan masyarakat dan diakui pengadilan", "Perjanjian yang dibuat atas dasar asas kebebasan berkontrak dan tidak diatur khusus dalam BW", "Perjanjian yang hanya dapat dibuat oleh notaris"],
+    answer: 2,
+    topic: "Perjanjian",
+    pasal: "Ps. 1319 BW",
+    explanation: "Perjanjian tidak bernama (innominaat/onbenoemde contract) adalah perjanjian yang tidak mendapat pengaturan khusus dalam KUHPerdata, tetapi lahir dari praktik bisnis berdasarkan asas kebebasan berkontrak (Ps. 1338 BW). Contohnya: perjanjian sewa-beli (leasing), perjanjian franchise, perjanjian joint venture. Perjanjian bernama (nominaat) adalah yang diatur secara khusus dalam BW seperti jual beli, sewa menyewa, dll."
+  },
+  {
+    q: "Somasi (ingebrekestelling) dalam hukum perjanjian diperlukan untuk...",
+    choices: ["Membatalkan perjanjian secara resmi di depan notaris", "Menyatakan debitur dalam keadaan lalai sebagai syarat tuntutan wanprestasi", "Mendaftarkan sengketa perjanjian ke pengadilan", "Membekukan aset debitur sebelum perkara disidangkan"],
+    answer: 1,
+    topic: "Wanprestasi",
+    pasal: "Ps. 1238 BW",
+    explanation: "Somasi adalah peringatan atau teguran resmi kepada debitur bahwa ia harus memenuhi prestasi. Somasi diperlukan agar debitur dinyatakan dalam keadaan lalai (in mora) – sebagai syarat untuk menuntut ganti rugi wanprestasi. Tanpa somasi, debitur belum dapat dianggap lalai kecuali: (1) Perjanjian menetapkan batas waktu tertentu (dies interpellat pro homine); (2) Perikatan bersumber dari PMH; (3) Debitur secara tegas menyatakan tidak akan berprestasi."
+  },
+  {
+    q: "Negotium claudicans atau 'perjanjian pincang' dalam hukum perikatan mengacu pada...",
+    choices: ["Perjanjian yang dibuat tanpa formalitas yang disyaratkan undang-undang", "Perbuatan hukum yang pembatalannya hanya dapat dituntut oleh salah satu pihak yang tidak cakap atau dalam paksaan", "Perjanjian antara pihak yang tidak memiliki kapasitas hukum sama sekali", "Perjanjian batal demi hukum karena causa terlarang"],
+    answer: 1,
+    topic: "Syarat Sah Perjanjian",
+    pasal: "Ps. 1331 ayat (2) BW",
+    explanation: "Negotium claudicans (perjanjian pincang) diatur dalam Ps. 1331 ayat (2) BW – merupakan perbuatan hukum yang cacat karena kekurangan syarat subjektif (pihak tidak cakap atau terpaksa). Perjanjian ini tidak batal dengan sendirinya, namun dapat dimintakan pembatalan hanya oleh pihak yang tidak cakap atau yang memberikan perizinan tidak bebas. Pihak yang cakap dan bebas tidak memiliki hak untuk meminta pembatalan."
+  },
+  {
+    q: "Keadaan bahwa seorang pewaris yang memiliki utang kepada pewaris – sehingga hutangnya hapus – merupakan contoh dari...",
+    choices: ["Novasi subjektif aktif", "Kompensasi (perjumpaan hutang)", "Confusio (percampuran hutang)", "Pembebasan hutang"],
+    answer: 2,
+    topic: "Hapusnya Perikatan",
+    pasal: "Ps. 1436-1437 BW",
+    explanation: "Percampuran hutang (confusio) terjadi ketika kedudukan kreditur dan debitur bertemu pada satu orang. Kasus klasik: A memiliki utang kepada B. B meninggal dan A adalah ahli warisnya. Ketika A mewarisi harta B, ia sekaligus mewarisi piutang B kepadanya sendiri. Karena tidak mungkin seseorang menagih dirinya sendiri, maka hutang tersebut hapus demi hukum."
+  },
+  {
+    q: "Siapakah yang wajib membuktikan adanya overmacht dalam sengketa wanprestasi?",
+    choices: ["Kreditur, karena ia yang mengajukan gugatan", "Debitur, karena ia yang mendalilkan keadaan memaksa", "Pengadilan secara ex officio", "Saksi ahli yang ditunjuk majelis hakim"],
+    answer: 1,
+    topic: "Overmacht",
+    pasal: "Ps. 1244 BW",
+    explanation: "Dalam sengketa wanprestasi, debitur yang mengklaim overmacht wajib membuktikannya (beban pembuktian ada pada debitur). Hal ini sejalan dengan asas hukum acara perdata bahwa siapa yang mendalilkan sesuatu, ia yang harus membuktikan (actori incumbit probatio). Debitur harus membuktikan bahwa: ada keadaan memaksa, tidak bisa diduga sebelumnya, tidak bisa dipertanggungjawabkan kepadanya, dan terjadi sebelum ia lalai."
+  },
+  {
+    q: "Perjanjian jual beli piutang belum mengakibatkan beralihnya hak piutang tersebut kepada pembeli karena...",
+    choices: ["Jual beli hanya bersifat obligatoir dan harus diikuti levering", "Piutang tidak dapat diperjualbelikan menurut hukum Indonesia", "Penjual harus terlebih dahulu mendapat izin dari pengadilan", "Debitur harus memberi persetujuan atas penjualan piutang tersebut"],
+    answer: 0,
+    topic: "Cessie",
+    pasal: "Ps. 613 BW",
+    explanation: "Dalam sistem hukum KUHPerdata, perjanjian jual beli hanya bersifat obligatoir (menimbulkan hak dan kewajiban) namun belum memindahkan hak kebendaan. Untuk beralihnya hak, diperlukan penyerahan (levering). Untuk piutang atas nama (hak tak bertubuh), levering dilakukan dengan cessie – yaitu pembuatan akta cessie (otentik atau bawah tangan) yang diikuti pemberitahuan kepada debitur (betekening) atau pengakuan debitur."
+  },
+  {
+    q: "Dalam perjanjian bersyarat, 'syarat batal' (ontbindende voorwaarde) adalah syarat yang...",
+    choices: ["Menangguhkan lahirnya perikatan sampai syarat terpenuhi", "Jika terpenuhi, menghentikan perjanjian dan memulihkan keadaan seperti semula", "Memperbarui perjanjian dengan prestasi yang lebih menguntungkan", "Menghapus kewajiban salah satu pihak secara permanen"],
+    answer: 1,
+    topic: "Perjanjian Bersyarat",
+    pasal: "Ps. 1253-1265 BW",
+    explanation: "Syarat batal (ontbindende voorwaarde, Ps. 1265 BW) adalah syarat yang jika terpenuhi, mengakibatkan perjanjian berakhir dan segala sesuatu dikembalikan pada keadaan semula seolah tidak pernah ada perjanjian. Ini berbeda dengan syarat tangguh (opschortende voorwaarde, Ps. 1263 BW) yang menangguhkan lahirnya perikatan hingga peristiwa yang dipersyaratkan terjadi. Contoh syarat batal: 'jual beli ini batal jika pembeli tidak melunasi dalam 3 bulan.'"
+  },
+  {
+    q: "Daluarsa extinctif dalam Pasal 1967 KUHPerdata menetapkan jangka waktu...",
+    choices: ["10 tahun untuk hapusnya semua perikatan perdata", "20 tahun untuk tuntutan kebendaan", "30 tahun untuk hapusnya tuntutan hukum kebendaan maupun perorangan", "5 tahun untuk tuntutan ganti rugi wanprestasi"],
+    answer: 2,
+    topic: "Lewat Waktu",
+    pasal: "Ps. 1967 BW",
+    explanation: "Pasal 1967 KUHPerdata menetapkan daluarsa umum (extinctieve verjaring): semua tuntutan hukum baik yang bersifat kebendaan maupun perorangan hapus karena daluarsa dengan lewatnya waktu 30 tahun. Pihak yang menunjuk daluarsa ini tidak perlu membuktikan adanya hak, dan tidak dapat diajukan tangkisan itikad buruk kepadanya. Setelah daluarsa, perikatan berubah menjadi perikatan alam (natural verbintenis) yang tidak dapat dituntut secara hukum."
+  },
+  {
+    q: "Ekspromisi sebagai salah satu bentuk novasi subjektif pasif ditandai dengan...",
+    choices: ["Debitur lama aktif mencarikan debitur baru atas persetujuan kreditur", "Penggantian debitur tanpa keterlibatan/keikutsertaan debitur lama", "Kreditur membebaskan debitur dari seluruh kewajibannya", "Para pihak memperpanjang masa berlaku perjanjian"],
+    answer: 1,
+    topic: "Ekspromisi",
+    pasal: "Ps. 1413-1418 BW",
+    explanation: "Ekspromisi adalah penggantian debitur tanpa keikutsertaan debitur lama – kreditur yang aktif mencari dan menerima debitur baru. Contoh: kreditur B diberitahu oleh pihak lain bahwa C akan mengambil alih kewajiban A, dan B menyetujui. A (debitur lama) tidak perlu ikut serta dalam perjanjian baru antara B dan C. Ini berbeda dengan delegasi dimana debitur lama aktif mencarikan pengganti."
+  },
+  {
+    q: "Asas konsensuil dalam hukum perjanjian Indonesia berarti bahwa perjanjian lahir pada saat...",
+    choices: ["Perjanjian ditandatangani oleh para pihak di hadapan notaris", "Terjadi kata sepakat antara para pihak meski tanpa formalitas tertentu", "Penyerahan objek perjanjian dilakukan secara nyata", "Pembayaran pertama dilakukan oleh salah satu pihak"],
+    answer: 1,
+    topic: "Asas Perjanjian",
+    pasal: "Ps. 1320 ayat (1) BW",
+    explanation: "Asas konsensuil (consensualisme) berarti perjanjian lahir dan mengikat sejak tercapainya kata sepakat antara para pihak, tanpa memerlukan formalitas tambahan (kecuali undang-undang menentukan lain). Ini berbeda dengan perjanjian formal (formele overeenkomst) yang baru sah setelah memenuhi bentuk tertentu (seperti akta notaris), dan perjanjian riil (reële overeenkomst) yang baru sempurna setelah penyerahan fisik benda."
+  },
+  {
+    q: "Hak kreditur berupa 'hak retensi' adalah hak untuk...",
+    choices: ["Menjual barang jaminan milik debitur secara langsung", "Menahan barang milik debitur sampai debitur memenuhi prestasinya", "Mengalihkan piutang kepada pihak ketiga", "Meminta pembatalan perjanjian di pengadilan"],
+    answer: 1,
+    topic: "Jaminan Perikatan",
+    pasal: "Ps. 1812 BW",
+    explanation: "Hak retensi (retentierecht) adalah hak kreditur untuk menahan benda milik debitur yang berada dalam penguasaannya sampai debitur melunasi kewajiban. Contoh: bengkel yang telah memperbaiki kendaraan berhak menahan kendaraan tersebut sampai biaya perbaikan dibayar. Hak retensi berbeda dengan hak gadai karena tidak memberikan hak preferensi atas hasil penjualan dan tidak memerlukan perjanjian khusus."
+  },
+  {
+    q: "Suatu perjanjian yang mewajibkan salah satu pihak untuk menyerahkan sesuatu yang dapat diperkirakan di kemudian hari (barang yang akan ada) pada prinsipnya...",
+    choices: ["Tidak sah karena objeknya belum ada saat perjanjian dibuat", "Sah, kecuali menyangkut warisan yang belum terbuka", "Sah hanya jika ada jaminan bahwa barang tersebut akan ada", "Tidak sah dan batal demi hukum tanpa pengecualian"],
+    answer: 1,
+    topic: "Objek Perjanjian",
+    pasal: "Ps. 1334 BW",
+    explanation: "Pasal 1334 KUHPerdata memperbolehkan barang yang akan ada di kemudian hari menjadi objek perjanjian. Contoh: penjualan hasil panen yang belum ada, penjualan barang yang akan diproduksi. Pengecualiannya: warisan yang belum terbuka tidak dapat dijadikan objek perjanjian (Ps. 1334 ayat 2), karena dianggap bertentangan dengan kesusilaan dan ketertiban umum. Asas ini mendukung perkembangan transaksi komersial modern."
+  },
+  {
+    q: "Pembebasan hutang (kwijtschelding) menurut Pasal 1438 KUHPerdata...",
+    choices: ["Harus dibuat dengan akta otentik di hadapan notaris", "Tidak boleh dipersangkakan dan harus dibuktikan", "Hanya dapat dilakukan oleh pengadilan atas permohonan kreditur", "Mengakibatkan perjanjian pokok hapus secara otomatis beserta seluruh jaminannya"],
+    answer: 1,
+    topic: "Pembebasan Hutang",
+    pasal: "Ps. 1438 BW",
+    explanation: "Pasal 1438 KUHPerdata menegaskan bahwa pembebasan hutang tidak boleh dipersangkakan (harus dibuktikan secara positif). Salah satu bentuk buktinya adalah pengembalian surat hutang/bukti piutang kepada debitur (Ps. 1439 BW). Pembebasan hutang dapat dilakukan secara lisan maupun tertulis, oleh kreditur secara sepihak (tanpa harus ada persetujuan debitur) atau berdasarkan persetujuan kedua pihak. Akibatnya: hapusnya kewajiban debitur."
+  },
+  {
+    q: "Dalam hukum perikatan, 'prestasi' adalah...",
+    choices: ["Sanksi yang diberikan kepada debitur yang wanprestasi", "Kewajiban yang harus dipenuhi oleh debitur dalam suatu perikatan", "Hak yang dimiliki kreditur untuk menuntut pemenuhan", "Imbalan yang diterima pihak yang berprestasi"],
+    answer: 1,
+    topic: "Prestasi",
+    pasal: "Ps. 1234 BW",
+    explanation: "Prestasi (prestatie) adalah isi dari kewajiban perikatan yang harus dipenuhi oleh debitur. Pasal 1234 KUHPerdata membagi prestasi menjadi 3 jenis: (1) Memberikan sesuatu (geven) – menyerahkan benda/membayar uang; (2) Berbuat sesuatu (doen) – melakukan perbuatan tertentu; (3) Tidak berbuat sesuatu (niet doen) – menahan diri dari perbuatan tertentu. Setiap perikatan pasti memiliki objek prestasi yang harus tertentu atau dapat ditentukan."
+  },
+  {
+    q: "Perbedaan mendasar antara wanprestasi dan PMH (perbuatan melawan hukum) adalah...",
+    choices: ["Wanprestasi menimbulkan ganti rugi; PMH tidak dapat dituntut ganti rugi", "Wanprestasi selalu diawali dengan hubungan kontraktual; PMH tidak harus demikian", "PMH hanya berkaitan dengan pelanggaran undang-undang pidana", "Wanprestasi dan PMH adalah istilah yang berbeda untuk hal yang sama"],
+    answer: 1,
+    topic: "Perbuatan Melawan Hukum",
+    pasal: "Ps. 1243, 1365 BW",
+    explanation: "Perbedaan fundamental: Wanprestasi (Ps. 1243 BW) mengandaikan adanya hubungan kontraktual sebelumnya antara para pihak – debitur tidak memenuhi kewajiban yang lahir dari perjanjian. PMH (Ps. 1365 BW) tidak memerlukan hubungan kontraktual sebelumnya – terjadi karena perbuatan yang melanggar hak orang lain, bertentangan kewajiban hukum pelaku, kesusilaan, atau kepatutan. Dalam PMH, kreditur/korban harus membuktikan semua unsurnya termasuk kesalahan."
+  },
+  {
+    q: "Asas yang menyatakan bahwa setiap orang yang cakap berhak untuk membuat perjanjian apa pun dalam bentuk dan isi apa pun adalah...",
+    choices: ["Asas Pacta Sunt Servanda", "Asas Kebebasan Berkontrak", "Asas Itikad Baik", "Asas Konsensualisme"],
+    answer: 1,
+    topic: "Asas Perjanjian",
+    pasal: "Ps. 1338 ayat (1) BW",
+    explanation: "Asas kebebasan berkontrak (contractvrijheid, Ps. 1338 ayat 1) memberikan kebebasan kepada setiap orang untuk: (1) Membuat atau tidak membuat perjanjian; (2) Memilih pihak dengan siapa ia berkontrak; (3) Menentukan isi/substansi perjanjian; (4) Memilih bentuk perjanjian. Namun, kebebasan ini dibatasi oleh: undang-undang yang bersifat memaksa (dwingend recht), kesusilaan, dan ketertiban umum (openbare orde)."
+  },
+  {
+    q: "Perjanjian bersyarat tangguh (opschortende voorwaarde) berbeda dengan perikatan dengan ketetapan waktu (tijdsbepaling) karena...",
+    choices: ["Syarat tangguh pasti terpenuhi; ketetapan waktu belum tentu terjadi", "Syarat tangguh belum pasti terjadi; ketetapan waktu pasti datang meski tidak diketahui kapan", "Keduanya sama-sama menangguhkan lahirnya perikatan", "Ketetapan waktu membatalkan perikatan; syarat tangguh tidak"],
+    answer: 1,
+    topic: "Perjanjian Bersyarat",
+    pasal: "Ps. 1253, 1268 BW",
+    explanation: "Perbedaan utama: Syarat tangguh (condition suspensive) bergantung pada peristiwa yang belum pasti terjadi (onzeker). Ketetapan waktu (tijdsbepaling/dies) bergantung pada peristiwa yang pasti akan terjadi meskipun mungkin belum diketahui kapan tepatnya (zeker). Contoh syarat tangguh: 'jika saya lulus ujian'; contoh ketetapan waktu: 'pada tanggal 1 Januari' atau 'ketika seseorang meninggal.' Dalam ketetapan waktu, perikatan sudah lahir namun pelaksanaannya ditangguhkan."
+  },
+  {
+    q: "Dalam subrogasi berdasarkan perjanjian (Pasal 1401 KUHPerdata), kreditur lama mencari kreditur baru berarti...",
+    choices: ["Kreditur lama memindahkan piutangnya melalui akta cessie kepada kreditur baru", "Kreditur menerima pembayaran dari pihak ketiga dan menetapkannya sebagai pengganti dengan pernyataan tegas bersamaan waktu pembayaran", "Kreditur memintakan novasi aktif kepada pengadilan", "Kreditur membebaskan debitur dan menerima pihak ketiga sebagai debitur baru"],
+    answer: 1,
+    topic: "Subrogasi",
+    pasal: "Ps. 1401 BW",
+    explanation: "Subrogasi karena perjanjian dimana kreditur aktif (Ps. 1401 angka 1): kreditur (B) menerima pembayaran dari pihak ketiga (C) dan secara tegas menetapkan C sebagai pengganti dirinya dalam hak-hak menagih kepada debitur (A). Syaratnya: pernyataan penggantian harus tegas dan dilakukan bersamaan dengan waktu pembayaran. Jika terlambat atau tidak tegas, dianggap bukan subrogasi melainkan pembebasan hutang biasa."
+  },
+  {
+    q: "Seorang yang dinyatakan dalam pengampuan (curatele) dianggap tidak cakap membuat perjanjian. Pengampuan dapat diberikan kepada...",
+    choices: ["Hanya kepada orang yang mengalami gangguan jiwa berat", "Orang yang sakit ingatan, pemboros, pemabuk, dan lemah akal", "Seluruh orang yang belum mencapai umur 18 tahun", "Orang yang tidak dapat membaca dan menulis"],
+    answer: 1,
+    topic: "Kecakapan",
+    pasal: "Ps. 433 BW jo. 1330 BW",
+    explanation: "Berdasarkan Pasal 433 KUHPerdata, pengampuan (curatele) dapat diberikan kepada: (1) Orang-orang yang sakit ingatan (geestesstoornis); (2) Orang yang boros (verkwistend); (3) Pemabuk (dronkaards); (4) Orang yang lemah akal (zwakheid van vermogens). Orang dalam pengampuan diwakili oleh pengampu (curator) dalam perbuatan hukum. Ini berbeda dengan belum dewasa yang diwakili orang tua atau wali."
+  }
+];
+
+const essayData = [
+  {
+    q: "Jelaskan perbedaan antara perikatan yang lahir dari perjanjian dengan perikatan yang lahir karena undang-undang, dan berikan masing-masing dua contoh konkretnya.",
+    topic: "Sumber Perikatan",
+    pasal: "Ps. 1233 BW",
+    answer: `<p><strong>Perikatan yang lahir dari Perjanjian (Ps. 1313 BW):</strong></p>
+    <p>Perikatan ini timbul karena adanya perbuatan hukum berupa persetujuan (overeenkomst) antara dua pihak atau lebih yang saling mengikatkan diri. Syarat sahnya diatur dalam Ps. 1320 BW (sepakat, cakap, hal tertentu, causa halal). Para pihak secara bebas menentukan isi, bentuk, dan syarat-syarat perjanjian berdasarkan asas kebebasan berkontrak.</p>
+    <p><strong>Contoh:</strong> (1) Perjanjian jual beli – lahir kewajiban penjual menyerahkan barang dan pembeli membayar harga; (2) Perjanjian sewa menyewa – lahir kewajiban penyewa membayar uang sewa dan yang menyewakan memberikan kenikmatan atas benda.</p>
+    <p><strong>Perikatan yang lahir karena Undang-Undang (Ps. 1352 BW):</strong></p>
+    <p>Perikatan ini timbul bukan dari kehendak para pihak, melainkan langsung ditentukan oleh undang-undang. Dibagi menjadi: (a) Perikatan yang lahir dari UU semata (zaakwaarneming, pembayaran tidak terutang); (b) Perikatan yang lahir dari UU karena perbuatan manusia – terbagi atas perbuatan sah (Ps. 1354-1364 BW) dan perbuatan melawan hukum (Ps. 1365 BW).</p>
+    <p><strong>Contoh:</strong> (1) Zaakwaarneming (Ps. 1354 BW) – seseorang yang mengurus kepentingan orang lain tanpa perintah, lahir kewajiban orang tersebut untuk mengganti biaya yang dikeluarkan; (2) Perbuatan Melawan Hukum (Ps. 1365 BW) – penabrak yang menimbulkan kerugian wajib membayar ganti rugi meski tidak ada perjanjian antara pelaku dan korban.</p>`
+  },
+  {
+    q: "Uraikan secara mendalam keempat syarat sahnya perjanjian menurut Pasal 1320 KUHPerdata dan jelaskan akibat hukum jika masing-masing syarat tidak terpenuhi.",
+    topic: "Syarat Sah Perjanjian",
+    pasal: "Ps. 1320 BW",
+    answer: `<p>Pasal 1320 KUHPerdata menetapkan empat syarat kumulatif sahnya perjanjian:</p>
+    <p><strong>1. Sepakat (Toestemming) – Syarat Subjektif</strong></p>
+    <p>Kedua pihak harus menyatakan kehendak yang sama dan bebas dari cacat kehendak (wilsgebreken). Kata sepakat tidak sah jika ada: paksaan (dwang/Ps. 1323-1327), kekhilafan (dwaling/Ps. 1321-1322), atau penipuan (bedrog/Ps. 1328). <em>Akibat hukum:</em> perjanjian dapat dibatalkan (vernietigbaar) dalam tenggang waktu 5 tahun (Ps. 1454 BW).</p>
+    <p><strong>2. Kecakapan (Bekwaamheid) – Syarat Subjektif</strong></p>
+    <p>Setiap orang cakap membuat perjanjian kecuali yang dinyatakan tidak cakap: belum dewasa (< 21 tahun atau belum menikah/Ps. 330 BW), dalam pengampuan (Ps. 433 BW). <em>Akibat hukum:</em> sama – perjanjian dapat dibatalkan. Perlu somasi dari wali/orang tua.</p>
+    <p><strong>3. Suatu Hal Tertentu (Bepaald Onderwerp) – Syarat Objektif</strong></p>
+    <p>Objek perjanjian harus tertentu atau setidaknya dapat ditentukan. Hanya barang yang dapat diperdagangkan (Ps. 1332 BW). Boleh barang yang akan ada kemudian kecuali warisan belum terbuka (Ps. 1334 BW). <em>Akibat hukum:</em> perjanjian batal demi hukum (nietig).</p>
+    <p><strong>4. Causa yang Halal (Geoorloofde Oorzaak) – Syarat Objektif</strong></p>
+    <p>Causa perjanjian tidak boleh dilarang UU, bertentangan kesusilaan, atau ketertiban umum (Ps. 1335-1337 BW). Causa adalah tujuan langsung yang ingin dicapai para pihak. <em>Akibat hukum:</em> perjanjian batal demi hukum (nietig).</p>`
+  },
+  {
+    q: "Jelaskan apa yang dimaksud dengan wanprestasi, sebutkan bentuk-bentuk wanprestasi, dan uraikan syarat-syarat untuk dapat menuntut ganti rugi atas dasar wanprestasi.",
+    topic: "Wanprestasi & Ganti Rugi",
+    pasal: "Ps. 1238, 1243 BW",
+    answer: `<p><strong>Pengertian Wanprestasi:</strong></p>
+    <p>Wanprestasi (toerekenbare tekortkoming, default) adalah keadaan dimana debitur tidak memenuhi kewajiban prestasi yang lahir dari perikatan sebagaimana yang seharusnya, yang dapat dipertanggungjawabkan kepadanya. Ini berbeda dari overmacht dimana ketidakpemenuhan prestasi tidak dapat dipertanggungjawabkan kepada debitur.</p>
+    <p><strong>Bentuk-bentuk Wanprestasi:</strong></p>
+    <p>(1) Tidak berprestasi sama sekali (nihil); (2) Terlambat berprestasi (mora debitoris); (3) Berprestasi tidak sebagaimana mestinya/keliru/cacat; (4) Melakukan perbuatan yang dilarang oleh perjanjian.</p>
+    <p><strong>Syarat Menuntut Ganti Rugi:</strong></p>
+    <p>Berdasarkan Ps. 1243 BW: (1) <em>Kelalaian/somasi</em> – debitur harus dinyatakan lalai terlebih dahulu melalui somasi/ingebrekestelling (Ps. 1238 BW), kecuali batas waktu perjanjian sudah lewat atau perikatan dari PMH; (2) <em>Ada kerugian</em> – kreditur harus menderita kerugian nyata baik materiil (damnum emergens) maupun kehilangan keuntungan (lucrum cessans); (3) <em>Kausalitas</em> – ada hubungan sebab akibat langsung antara wanprestasi dan kerugian (Ps. 1248 BW); (4) <em>Dapat diduga</em> – kerugian tersebut wajar dapat diduga pada saat perjanjian dibuat.</p>`
+  },
+  {
+    q: "Apa yang dimaksud dengan overmacht (keadaan memaksa)? Jelaskan perbedaan antara overmacht absolut dan overmacht relatif, serta akibat hukumnya.",
+    topic: "Overmacht",
+    pasal: "Ps. 1244-1245 BW",
+    answer: `<p><strong>Pengertian Overmacht:</strong></p>
+    <p>Overmacht atau force majeure (Ps. 1244-1245 BW) adalah keadaan memaksa dimana debitur tidak dapat memenuhi prestasi akibat suatu peristiwa di luar kemampuan dan penguasaannya yang tidak dapat diduga sebelumnya dan tidak dapat dipertanggungjawabkan kepadanya. Dalam keadaan overmacht, debitur bebas dari kewajiban membayar ganti rugi.</p>
+    <p><strong>Overmacht Absolut:</strong></p>
+    <p>Keadaan memaksa yang sama sekali menghalangi pelaksanaan prestasi – mustahil dipenuhi oleh siapapun. Contoh: musnahnya objek karena bencana alam, perang yang menutup rute pengiriman seluruhnya. Akibat: perikatan hapus demi hukum, tidak ada kewajiban ganti rugi sama sekali.</p>
+    <p><strong>Overmacht Relatif:</strong></p>
+    <p>Keadaan memaksa yang tidak mutlak menghalangi prestasi, namun memperberatnya secara luar biasa (hardship). Prestasi secara teoritis masih mungkin namun akan mengorbankan kepentingan yang tidak proporsional. Contoh: harga bahan baku melonjak 500% akibat kebijakan impor tiba-tiba. Akibat: hakim dapat memodifikasi perjanjian atau membebaskan sebagian kewajiban berdasarkan asas itikad baik (Ps. 1338 ayat 3 BW).</p>
+    <p><strong>Syarat Overmacht:</strong> (1) Ada halangan pelaksanaan prestasi; (2) Halangan tidak diduga sebelumnya; (3) Tidak dapat dipertanggungjawabkan kepada debitur; (4) Tidak ada itikad buruk; (5) Terjadi sebelum debitur dalam keadaan lalai.</p>`
+  },
+  {
+    q: "Jelaskan asas-asas utama dalam hukum perjanjian Indonesia beserta dasar hukumnya dalam KUHPerdata.",
+    topic: "Asas Perjanjian",
+    pasal: "Ps. 1313-1338 BW",
+    answer: `<p>Hukum perjanjian Indonesia mengenal beberapa asas fundamental:</p>
+    <p><strong>1. Asas Kebebasan Berkontrak (Ps. 1338 ayat 1 BW)</strong></p>
+    <p>Para pihak bebas membuat perjanjian dalam bentuk, syarat, dan isi apapun sepanjang tidak melanggar UU yang memaksa, kesusilaan, dan ketertiban umum. Ini adalah asas paling fundamental namun bukan tanpa batas.</p>
+    <p><strong>2. Asas Konsensualisme (Ps. 1320 ayat 1 BW)</strong></p>
+    <p>Perjanjian lahir cukup dengan adanya kata sepakat tanpa formalitas khusus (kecuali undang-undang mewajibkan bentuk tertentu). Pengecualian: perjanjian formal (hibah) dan perjanjian riil (penitipan barang).</p>
+    <p><strong>3. Asas Pacta Sunt Servanda (Ps. 1338 ayat 1 BW)</strong></p>
+    <p>Perjanjian yang sah berlaku sebagai undang-undang bagi para pihak yang membuatnya – wajib dilaksanakan dan mengikat penuh. Tidak dapat dibatalkan secara sepihak.</p>
+    <p><strong>4. Asas Itikad Baik (Ps. 1338 ayat 3 BW)</strong></p>
+    <p>Perjanjian harus dilaksanakan sesuai norma kejujuran dan kepatutan. Hakim berwenang mengoreksi perjanjian yang dijalankan bertentangan itikad baik. Ada dua dimensi: subjektif (kejujuran saat membuat) dan objektif (kepatutan saat melaksanakan).</p>
+    <p><strong>5. Asas Kepribadian (Ps. 1315-1340 BW)</strong></p>
+    <p>Perjanjian hanya mengikat para pihak dan ahli warisnya (Ps. 1318 BW). Pengecualian: derden beding (Ps. 1317 BW) – perjanjian untuk kepentingan pihak ketiga, dan jual beli tidak memutus sewa (Ps. 1576 BW).</p>`
+  },
+  {
+    q: "Uraikan perbedaan, persamaan, dan masing-masing syarat antara novasi, subrogasi, dan cessie sebagai cara perpindahan atau perubahan perikatan.",
+    topic: "Novasi, Subrogasi, Cessie",
+    pasal: "Ps. 613, 1400, 1413 BW",
+    answer: `<p><strong>NOVASI (Pembaruan Hutang – Ps. 1413 BW):</strong></p>
+    <p>Menggantikan perikatan lama dengan perikatan baru sehingga perikatan lama hapus. Jenis: Objektif (mengganti objek/isi), Subjektif Pasif (ganti debitur: delegasi/ekspromisi), Subjektif Aktif (ganti kreditur). <em>Syarat:</em> harus ada niat untuk memperbarui (animus novandi). <em>Akibat:</em> perikatan lama hapus, hak-hak accessoir tidak ikut berpindah kecuali diperjanjikan. Dapat dilakukan lisan maupun tertulis.</p>
+    <p><strong>SUBROGASI (Penggantian Kreditur – Ps. 1400 BW):</strong></p>
+    <p>Pihak ketiga yang membayar hutang debitur kepada kreditur lama menggantikan posisi kreditur tersebut. Perikatan pokok TIDAK hapus – tetap berlanjut dengan kreditur baru. <em>Jenis:</em> karena perjanjian (Ps. 1401) dan karena UU (Ps. 1402). <em>Akibat:</em> hak-hak accessoir (jaminan, gadai, hipotik) IKUT berpindah ke kreditur baru. Harus dinyatakan secara tegas.</p>
+    <p><strong>CESSIE (Pengalihan Piutang – Ps. 613 BW):</strong></p>
+    <p>Cara levering hak piutang atas nama kepada pihak lain melalui akta cessie. Berbeda dari novasi, cessie tidak memerlukan bantuan/persetujuan debitur (debitur cukup diberitahu/diakuinya). Hak accessoir ikut berpindah. HARUS tertulis (akta cessie). <em>Perbedaan dari subrogasi:</em> subrogasi terjadi karena pembayaran hutang; cessie terjadi karena jual beli/pengalihan piutang.</p>`
+  },
+  {
+    q: "Jelaskan konsep perikatan tanggung renteng (hoofdelijke verbintenis), syarat terjadinya, dan implikasinya bagi debitur dan kreditur.",
+    topic: "Tanggung Renteng",
+    pasal: "Ps. 1278-1295 BW",
+    answer: `<p><strong>Pengertian Perikatan Tanggung Renteng:</strong></p>
+    <p>Perikatan tanggung renteng (solidaire verbintenis/hoofdelijke verbintenis) adalah perikatan dimana beberapa orang bersama-sama sebagai pihak yang berkewajiban (debitur tanggung renteng) atau beberapa orang bersama-sama sebagai pihak yang berhak (kreditur tanggung renteng) dalam satu perikatan.</p>
+    <p><strong>Tanggung Renteng Pasif (Debitur):</strong></p>
+    <p>Beberapa debitur bersama-sama memiliki satu kewajiban. Kreditur berhak menagih seluruh hutang dari salah satu debitur, beberapa, atau semua sekaligus. Debitur yang membayar seluruh hutang berhak meminta regres (penggantian) dari co-debitur lainnya.</p>
+    <p><strong>Tanggung Renteng Aktif (Kreditur):</strong></p>
+    <p>Beberapa kreditur bersama-sama memiliki satu piutang. Masing-masing kreditur dapat menagih seluruh piutang dari debitur. Kreditur yang menerima pembayaran penuh wajib menyerahkan bagian kreditur lain.</p>
+    <p><strong>Syarat Terjadinya:</strong> (1) Ditentukan secara tegas oleh para pihak dalam perjanjian; (2) Ditentukan oleh undang-undang (contoh: Ps. 18 UUPT – direksi tanggung renteng dalam pengurus perseroan). Tanggung renteng tidak dapat dipersangkakan.</p>
+    <p><strong>Implikasi:</strong> Subrogasi demi hukum terjadi untuk co-debitur yang membayar seluruh hutang (Ps. 1402 BW) – ia berhak menagih bagian co-debitur lainnya.</p>`
+  },
+  {
+    q: "Apa yang dimaksud dengan PMH (Perbuatan Melawan Hukum) menurut Pasal 1365 BW? Uraikan unsur-unsurnya dan bandingkan dengan wanprestasi.",
+    topic: "Perbuatan Melawan Hukum",
+    pasal: "Ps. 1365 BW",
+    answer: `<p><strong>Definisi PMH (Onrechtmatige Daad – Ps. 1365 BW):</strong></p>
+    <p>"Tiap perbuatan yang melanggar hukum dan membawa kerugian kepada orang lain, mewajibkan orang yang menimbulkan kerugian itu karena kesalahannya untuk menggantikan kerugian tersebut."</p>
+    <p><strong>Unsur-unsur PMH (pasca Arrest HR 1919 – Cohen vs Lindenbaum):</strong></p>
+    <p>(1) <em>Perbuatan:</em> aktif (berbuat) atau pasif (tidak berbuat padahal ada kewajiban hukum untuk berbuat);</p>
+    <p>(2) <em>Melawan hukum:</em> bertentangan dengan hak subjektif orang lain, kewajiban hukum pelaku, kesusilaan yang baik, atau kepatutan dalam masyarakat;</p>
+    <p>(3) <em>Kesalahan (schuld):</em> kesengajaan (opzet) atau kelalaian (culpa);</p>
+    <p>(4) <em>Kerugian (schade):</em> material dan/atau immaterial;</p>
+    <p>(5) <em>Hubungan kausal:</em> antara perbuatan dan kerugian (condicio sine qua non + adequate veroorzaking).</p>
+    <p><strong>Perbandingan PMH vs Wanprestasi:</strong></p>
+    <p><em>PMH:</em> tidak perlu hubungan kontraktual sebelumnya; beban bukti ada pada penggugat (semua unsur); dapat menggugat pihak yang tidak ada perjanjian.</p>
+    <p><em>Wanprestasi:</em> mensyaratkan hubungan kontraktual; kreditur cukup membuktikan tidak dipenuhinya prestasi; perlu somasi terlebih dahulu.</p>`
+  },
+  {
+    q: "Jelaskan cara-cara hapusnya perikatan menurut Pasal 1381 KUHPerdata dan berikan penjelasan singkat masing-masingnya.",
+    topic: "Hapusnya Perikatan",
+    pasal: "Ps. 1381 BW",
+    answer: `<p>Pasal 1381 KUHPerdata menetapkan 9 cara hapusnya perikatan:</p>
+    <p><strong>1. Pembayaran (betaling):</strong> Pemenuhan prestasi oleh debitur kepada kreditur, diartikan luas meliputi memberikan, berbuat, atau tidak berbuat sesuatu (Ps. 1234 BW).</p>
+    <p><strong>2. Konsinyasi (consignatie/Ps. 1404-1412):</strong> Penawaran pembayaran diikuti penitipan jika kreditur menolak menerima. Hanya untuk hutang uang dan benda bergerak.</p>
+    <p><strong>3. Pembaruan hutang/novasi (Ps. 1413-1424):</strong> Perikatan lama diganti dengan perikatan baru sehingga perikatan lama hapus. Bisa objektif (ganti objek) atau subjektif (ganti pihak).</p>
+    <p><strong>4. Perjumpaan hutang/kompensasi (Ps. 1425-1435):</strong> Debitur dan kreditur saling berutang, sehingga hutang-hutang saling diperhitungkan dan hapus ipso jure sejumlah yang terkecil.</p>
+    <p><strong>5. Percampuran hutang/confusio (Ps. 1436-1437):</strong> Kedudukan kreditur dan debitur bertemu pada satu orang, terjadi demi hukum.</p>
+    <p><strong>6. Pembebasan hutang/kwijtschelding (Ps. 1438-1443):</strong> Kreditur melepaskan hak tagihnya terhadap debitur secara sukarela. Tidak boleh dipersangkakan.</p>
+    <p><strong>7. Musnahnya barang (Ps. 1444-1445):</strong> Objek perikatan musnah karena overmacht sebelum levering. Debitur harus membuktikan musnahnya barang.</p>
+    <p><strong>8. Kebatalan/pembatalan (Ps. 1446-1456):</strong> Karena kekurangan syarat subjektif (vernietigbaar) atau objektif (nietig). Berlaku surut sejak awal.</p>
+    <p><strong>9. Lewat waktu/daluarsa (Ps. 1946-1993):</strong> Hapusnya hak menuntut karena lewatnya batas waktu yang ditentukan UU. Umum: 30 tahun (Ps. 1967).</p>`
+  },
+  {
+    q: "Uraikan syarat-syarat dan akibat hukum dari pembebasan hutang (kwijtschelding) menurut KUHPerdata.",
+    topic: "Pembebasan Hutang",
+    pasal: "Ps. 1438-1443 BW",
+    answer: `<p><strong>Pengertian Pembebasan Hutang:</strong></p>
+    <p>Pembebasan hutang (kwijtschelding/décharge) adalah tindakan sukarela kreditur yang membebaskan debitur dari kewajiban melaksanakan prestasinya, baik seluruhnya maupun sebagian, tanpa mendapatkan imbalan prestasi yang sebanding.</p>
+    <p><strong>Syarat-syarat:</strong></p>
+    <p>(1) <em>Harus dibuktikan – tidak boleh dipersangkakan (Ps. 1438 BW):</em> pembebasan hutang tidak dapat disimpulkan dari tindakan diam-diam atau perilaku ambigu kreditur;</p>
+    <p>(2) Pengembalian surat hutang asli kepada debitur oleh kreditur merupakan salah satu bukti pembebasan (Ps. 1439 BW);</p>
+    <p>(3) Dapat dilakukan sepihak oleh kreditur (tidak memerlukan persetujuan debitur) atau berdasarkan persetujuan kedua pihak;</p>
+    <p>(4) Boleh secara lisan maupun tertulis (tidak ada ketentuan bentuk tertentu);</p>
+    <p>(5) Pembebasan hutang kepada salah satu debitur tanggung renteng membebaskan semua debitur (Ps. 1442), kecuali ditentukan lain.</p>
+    <p><strong>Jenis Pembebasan Hutang:</strong></p>
+    <p>(1) <em>Cuma-cuma (om niet):</em> debitur dibebaskan tanpa harus memberikan prestasi apapun – bersifat hibah;</p>
+    <p>(2) <em>Dengan syarat/beban:</em> debitur dibebaskan dengan kewajiban menyerahkan prestasi lain (mirip novasi objektif namun tidak ada perikatan baru yang menggantikan).</p>
+    <p><strong>Akibat Hukum:</strong> Hapusnya kewajiban debitur; gugurnya hak-hak jaminan accessoir yang melekat; bila ada co-debitur dalam tanggung renteng, mereka semua ikut dibebaskan.</p>`
+  },
+  {
+    q: "Jelaskan konsep 'derden beding' (janji untuk kepentingan pihak ketiga) yang merupakan pengecualian dari asas kepribadian dalam perjanjian.",
+    topic: "Asas Kepribadian",
+    pasal: "Ps. 1317 BW",
+    answer: `<p><strong>Pengertian Derden Beding:</strong></p>
+    <p>Derden beding (perjanjian untuk pihak ketiga) merupakan pengecualian dari asas kepribadian (Ps. 1340 BW) yang biasanya membatasi perjanjian hanya mengikat para pihak pembuatnya. Ps. 1317 BW memungkinkan suatu perjanjian dibuat untuk kepentingan pihak ketiga.</p>
+    <p><strong>Tiga Situasi Derden Beding (Ps. 1317 BW):</strong></p>
+    <p>(1) <em>Dalam pemberian/hibah:</em> seseorang memberikan sesuatu (A memberikan hibah kepada B) dengan syarat B harus melakukan prestasi tertentu untuk C (pihak ketiga). Contoh: A menghibahkan tanah kepada B dengan syarat B harus membayar pensiun bulanan kepada C (anak yatim piatu).</p>
+    <p>(2) <em>Dalam perjanjian umum:</em> seseorang dalam suatu perjanjian membuat janji untuk kepentingan pihak ketiga. Contoh: A menjual rumah kepada B dengan syarat B harus memberikan hak menempati kepada C selama 5 tahun.</p>
+    <p>(3) <em>Mengikat pihak ketiga setelah disetujui:</em> perjanjian antara A dan B baru mengikat C apabila C telah menyatakan persetujuannya.</p>
+    <p><strong>Syarat Berlakunya:</strong> Pihak ketiga harus menyatakan menerima (aanvaarding) janji tersebut. Sebelum ada penerimaan, pemberi janji (stipulans) masih dapat mencabut janjinya.</p>
+    <p><strong>Contoh Praktis:</strong> Perjanjian asuransi jiwa – tertanggung (A) membayar premi kepada penanggung (B), namun manfaat asuransi ditujukan untuk ahli waris (C) sebagai beneficiary – ini adalah derden beding klasik.</p>`
+  },
+  {
+    q: "Jelaskan apa yang dimaksud dengan 'risiko' dalam hukum perjanjian dan bagaimana pembagian risiko dalam berbagai jenis perjanjian menurut KUHPerdata.",
+    topic: "Risiko",
+    pasal: "Ps. 1444-1445, 1460 BW",
+    answer: `<p><strong>Pengertian Risiko:</strong></p>
+    <p>Risiko (gevaar/risque) dalam hukum perjanjian adalah kewajiban untuk menanggung kerugian yang timbul akibat musnahnya atau rusaknya objek perikatan yang disebabkan oleh peristiwa di luar kesalahan (overmacht) salah satu pihak. Pertanyaan kunci: siapa yang menanggung kerugian jika objek musnah tanpa kesalahan siapapun?</p>
+    <p><strong>Risiko dalam Perjanjian Sepihak (Unilateral):</strong></p>
+    <p>Pasal 1444 BW: dalam perikatan memberikan benda tertentu (sepihak), jika benda musnah sebelum diserahkan karena overmacht, perikatan hapus dan kerugian ditanggung kreditur (penerima). Debitur tidak wajib membayar ganti rugi.</p>
+    <p><strong>Risiko dalam Perjanjian Timbal Balik:</strong></p>
+    <p>(1) <em>Sewa menyewa (Ps. 1553 BW):</em> risiko ada pada pemilik barang (yang menyewakan). Jika barang sewa musnah, perjanjian hapus dan penyewa tidak wajib membayar sewa lagi;</p>
+    <p>(2) <em>Jual beli benda tertentu (Ps. 1460 BW – aslinya):</em> risiko beralih ke pembeli sejak saat perjanjian dibuat (kata sepakat), meski belum diserahkan. Ini kontroversial dan sering dikritik doktrin;</p>
+    <p>(3) <em>Jual beli benda genus (jenis):</em> risiko ada pada penjual sampai benda diserahkan (genus nunquam perit);</p>
+    <p>(4) <em>Perjanjian borongan (Ps. 1605-1606 BW):</em> risiko ada pada pemborong sampai pekerjaan diserahkan dan diterima.</p>`
+  },
+  {
+    q: "Uraikan perbedaan antara perjanjian formil, perjanjian riil, dan perjanjian konsensual beserta contoh-contohnya dalam sistem hukum Indonesia.",
+    topic: "Klasifikasi Perjanjian",
+    pasal: "Ps. 1320, 1319 BW",
+    answer: `<p><strong>1. Perjanjian Konsensual (Consensuele Overeenkomst):</strong></p>
+    <p>Perjanjian yang lahir dan sempurna cukup dengan adanya kata sepakat dari para pihak, tanpa memerlukan formalitas atau penyerahan fisik benda apapun. Ini adalah bentuk perjanjian yang paling umum dan mencerminkan asas konsensuil KUHPerdata.</p>
+    <p><em>Contoh:</em> Perjanjian jual beli (Ps. 1457 BW) – sah dan mengikat sejak ada sepakat mengenai benda dan harga, meski belum ada penyerahan dan pembayaran; perjanjian sewa menyewa; perjanjian kerja.</p>
+    <p><strong>2. Perjanjian Formil (Formele Overeenkomst):</strong></p>
+    <p>Perjanjian yang baru sah dan sempurna jika dibuat dalam bentuk tertentu yang ditetapkan undang-undang. Tanpa memenuhi formalitas tersebut, perjanjian tidak memiliki kekuatan hukum.</p>
+    <p><em>Contoh:</em> Hibah benda tidak bergerak harus dengan akta notaris (Ps. 1682 BW); Perjanjian perkawinan (Ps. 147 BW) harus dengan akta notaris; Perjanjian fidusia harus dengan akta notaris dan didaftarkan.</p>
+    <p><strong>3. Perjanjian Riil (Reële Overeenkomst):</strong></p>
+    <p>Perjanjian yang baru lahir dan sempurna jika telah dilakukan penyerahan fisik objek perjanjian (traditio rei). Sebelum ada penyerahan, perjanjian belum terbentuk secara hukum.</p>
+    <p><em>Contoh:</em> Perjanjian penitipan barang/bewaargeving (Ps. 1694 BW) – baru ada perjanjian penitipan sejak barang diserahkan kepada penerima titipan; Perjanjian pinjam pakai (Ps. 1740 BW).</p>`
+  },
+  {
+    q: "Apa yang dimaksud dengan 'causa' dalam syarat sahnya perjanjian dan bagaimana cara membedakan antara causa palsu, causa terlarang, dan perjanjian tanpa causa?",
+    topic: "Causa Perjanjian",
+    pasal: "Ps. 1335-1337 BW",
+    answer: `<p><strong>Pengertian Causa (Oorzaak):</strong></p>
+    <p>Causa adalah tujuan langsung (onmiddellijk doel) yang ingin dicapai oleh para pihak dengan membuat perjanjian – bukan motivasi subjektif tersembunyi masing-masing pihak. Dalam pandangan objektif, causa perjanjian jual beli bagi pembeli adalah mendapatkan barang; bagi penjual adalah mendapatkan harga.</p>
+    <p><strong>Perjanjian Tanpa Causa (Ps. 1335 BW):</strong></p>
+    <p>Perjanjian yang sama sekali tidak memiliki tujuan yang dapat diwujudkan – tidak jelas apa yang ingin dicapai oleh para pihak. Contoh: perjanjian untuk menyerahkan benda yang tidak pernah ada dan tidak akan ada. <em>Akibat:</em> batal demi hukum (nietig).</p>
+    <p><strong>Causa Palsu (Valse Oorzaak – Ps. 1335 BW):</strong></p>
+    <p>Causa yang disampaikan dalam perjanjian tidak mencerminkan causa yang sebenarnya/tersembunyi. Contoh: perjanjian jual beli yang sebenarnya merupakan hibah terselubung untuk menghindari kewajiban pajak hibah. <em>Akibat:</em> perjanjian batal demi hukum – kecuali causa yang sebenarnya adalah halal (perjanjian sebenarnya tetap sah dengan natura causa yang sesungguhnya).</p>
+    <p><strong>Causa Terlarang (Verboden Oorzaak – Ps. 1337 BW):</strong></p>
+    <p>Causa perjanjian bertentangan dengan: (a) Undang-undang yang bersifat memaksa (dwingend recht); (b) Kesusilaan yang baik (goede zeden); (c) Ketertiban umum (openbare orde). Contoh: perjanjian untuk melakukan pembunuhan berencana, perjanjian jual beli narkotika, perjanjian untuk menghindari kewajiban pajak secara melanggar hukum. <em>Akibat:</em> batal demi hukum.</p>`
+  },
+  {
+    q: "Jelaskan mekanisme delegasi dan ekspromisi sebagai bentuk novasi subjektif pasif, termasuk perbedaan dan persamaan keduanya.",
+    topic: "Delegasi & Ekspromisi",
+    pasal: "Ps. 1413-1418 BW",
+    answer: `<p>Novasi subjektif pasif adalah penggantian debitur (pihak yang berkewajiban) dalam suatu perikatan melalui dua mekanisme:</p>
+    <p><strong>DELEGASI:</strong></p>
+    <p>Debitur lama (A) secara aktif mencarikan debitur baru (C) dan menawarkannya kepada kreditur (B). Setelah kreditur menyetujui, para pihak bersama-sama membuat perjanjian baru dimana C mengambil alih kewajiban A terhadap B. Dalam delegasi, debitur lama ikut aktif berpartisipasi dalam pembentukan perikatan baru.</p>
+    <p><em>Contoh:</em> A memiliki utang kepada B. A menemukan C yang bersedia mengambil alih utang tersebut. A, B, dan C bertemu, B menyetujui, dan C berjanji kepada B untuk memenuhi prestasi yang semula merupakan kewajiban A. Utang A kepada B hapus; kini C yang berutang kepada B.</p>
+    <p><strong>EKSPROMISI:</strong></p>
+    <p>Penggantian debitur tanpa keterlibatan/keikutsertaan debitur lama – kreditur (B) yang aktif mencari dan menerima debitur baru (C). A (debitur lama) tidak perlu hadir atau memberikan persetujuan. B cukup diberitahu bahwa C mengambil alih kewajiban A.</p>
+    <p><em>Contoh:</em> A memiliki utang kepada B. C mendatangi B dan menawarkan diri untuk mengambil alih utang A. B menyetujui dan membuat perjanjian dengan C. A dibebaskan dari kewajiban tanpa harus hadir.</p>
+    <p><strong>Persamaan:</strong> Keduanya mengakibatkan hapusnya perikatan lama dan lahirnya perikatan baru; hak-hak accessoir tidak ikut berpindah kecuali diperjanjikan.</p>
+    <p><strong>Perbedaan Utama:</strong> Delegasi: debitur lama aktif; Ekspromisi: kreditur aktif, debitur lama pasif.</p>`
+  },
+  {
+    q: "Uraikan syarat-syarat dan prosedur konsinyasi (penawaran pembayaran diikuti penitipan) serta kapan lembaga hukum ini dapat diterapkan.",
+    topic: "Konsinyasi",
+    pasal: "Ps. 1404-1412 BW",
+    answer: `<p><strong>Pengertian Konsinyasi:</strong></p>
+    <p>Konsinyasi (consignatie/penawaran pembayaran dengan penitipan) adalah upaya hukum yang tersedia bagi debitur ketika kreditur menolak menerima pembayaran. Tujuannya: agar debitur tetap dapat membebaskan diri dari kewajiban meski kreditur tidak kooperatif.</p>
+    <p><strong>Syarat Dapat Dilakukan Konsinyasi (Ps. 1405 BW):</strong></p>
+    <p>(1) Hanya untuk hutang uang dan hutang benda bergerak (tidak untuk jasa, tidak berbuat sesuatu, atau benda tidak bergerak);</p>
+    <p>(2) Penawaran pembayaran harus nyata dan sesuai dengan isi perikatan;</p>
+    <p>(3) Penawaran dilakukan kepada orang yang berhak menerima – kreditur atau kuasanya;</p>
+    <p>(4) Syarat-syarat perjanjian yang ditetapkan untuk keuntungan kreditur harus sudah dipenuhi;</p>
+    <p>(5) Waktu yang ditentukan untuk pembayaran sudah tiba;</p>
+    <p>(6) Syarat batal yang menggantungkan perikatan belum terpenuhi.</p>
+    <p><strong>Prosedur Konsinyasi:</strong></p>
+    <p>(1) Debitur melakukan penawaran nyata kepada kreditur (Ps. 1404 BW);</p>
+    <p>(2) Jika kreditur menolak, debitur menitipkan objek pembayaran kepada kas pemerintah atau tempat yang ditunjuk melalui bantuan notaris dan juru sita;</p>
+    <p>(3) Notaris membuat akta penawaran dan berita acara penitipan;</p>
+    <p>(4) Seluruh biaya yang timbul dari prosedur ini dibebankan kepada kreditur yang menolak (Ps. 1408 BW);</p>
+    <p>(5) Sejak penitipan yang sah, risiko berpindah ke kreditur dan debitur tidak lagi menanggung bunga.</p>
+    <p><strong>Akibat Konsinyasi yang Sah:</strong> Debitur bebas dari kewajiban; hutang dianggap telah dibayar; risiko beralih ke kreditur.</p>`
+  },
+  {
+    q: "Jelaskan ketentuan lewat waktu (daluarsa) dalam hukum perikatan, perbedaan antara daluarsa acquisitif dan extinctif, serta bagaimana cara memulai dan menghentikan jalannya daluarsa.",
+    topic: "Lewat Waktu",
+    pasal: "Ps. 1946-1993 BW",
+    answer: `<p><strong>Pengertian Lewat Waktu (Verjaring):</strong></p>
+    <p>Daluarsa adalah suatu sarana hukum untuk memperoleh sesuatu atau untuk dibebaskan dari suatu perikatan dengan lewatnya suatu waktu tertentu (Ps. 1946 BW). Daluarsa merupakan lembaga hukum yang memberikan kepastian hukum dan mendorong pihak yang berkepentingan untuk tidak terlalu lama menunda penuntutan haknya.</p>
+    <p><strong>Daluarsa Acquisitif (Verkrijgende Verjaring):</strong></p>
+    <p>Daluarsa yang mengakibatkan seseorang memperoleh hak milik atas suatu benda melalui lampaunya waktu tertentu dengan syarat-syarat tertentu (beritikad baik, bezit yang sah). Berlaku untuk hak kebendaan: benda bergerak tanpa titel – segera; benda tidak bergerak dengan titel – 20 tahun (beriktikad baik) atau 30 tahun (tanpa pembedaan).</p>
+    <p><strong>Daluarsa Extinctif (Bevrijdende Verjaring – Ps. 1967 BW):</strong></p>
+    <p>Daluarsa yang membebaskan debitur dari kewajiban karena kreditur tidak menuntut dalam waktu yang ditentukan. Umum: 30 tahun untuk semua tuntutan hukum. Setelah daluarsa, perikatan menjadi perikatan alam (natural verbintenis) – kewajiban moral tetap ada namun tidak dapat dipaksakan secara hukum.</p>
+    <p><strong>Daluarsa Khusus:</strong> 5 tahun: sewa, bunga, gaji pekerja; 3 tahun: tuntutan dokter/pengacara; 1 tahun: tuntutan pengusaha hotel/penginapan.</p>
+    <p><strong>Cara Menghentikan Daluarsa (Stuiting):</strong> Pengakuan dari debitur; somasi/teguran resmi; pengajuan gugatan ke pengadilan. Setelah stuiting, jangka waktu daluarsa mulai berjalan kembali dari awal.</p>`
+  },
+  {
+    q: "Uraikan perbedaan antara perjanjian bernama (nominaat) dan perjanjian tidak bernama (innominaat), serta bagaimana hukum mengatur perjanjian tidak bernama di Indonesia.",
+    topic: "Jenis Perjanjian",
+    pasal: "Ps. 1319, 1338 BW",
+    answer: `<p><strong>Perjanjian Bernama (Nominaat/Benoemde Overeenkomst):</strong></p>
+    <p>Perjanjian yang telah mendapat pengaturan khusus dan nama tersendiri dalam KUHPerdata (Buku III). Para pihak yang membuat perjanjian jenis ini tunduk pada ketentuan-ketentuan khusus yang mengatur perjanjian tersebut, selain ketentuan umum hukum perikatan.</p>
+    <p><em>Contoh dalam KUHPerdata:</em> Jual beli (Ps. 1457-1540), Sewa menyewa (Ps. 1548-1600), Pinjam meminjam (Ps. 1754-1773), Pemberian kuasa/mandaat (Ps. 1792-1819), Perjanjian kerja (Ps. 1601-1617), Penanggungan/borgtocht (Ps. 1820-1850), Persekutuan/maatschap (Ps. 1618-1652).</p>
+    <p><strong>Perjanjian Tidak Bernama (Innominaat/Onbenoemde Overeenkomst):</strong></p>
+    <p>Perjanjian yang tidak mendapat pengaturan khusus dalam KUHPerdata, lahir dari kebutuhan dan praktik hukum bisnis berdasarkan asas kebebasan berkontrak (Ps. 1338 ayat 1 BW). Jumlah dan jenisnya terus berkembang seiring perkembangan ekonomi dan bisnis.</p>
+    <p><em>Contoh:</em> Perjanjian sewa-beli (financial leasing), franchise/waralaba, joint venture, factoring (anjak piutang), perjanjian bagi hasil (production sharing contract), perjanjian lisensi, perjanjian konsorsium.</p>
+    <p><strong>Hukum yang Berlaku untuk Innominaat:</strong></p>
+    <p>(1) Ketentuan umum hukum perikatan (Ps. 1233-1456 BW) tetap berlaku;</p>
+    <p>(2) Asas kebebasan berkontrak memberikan dasar validitasnya (Ps. 1338 BW);</p>
+    <p>(3) Jika ada ketentuan khusus dalam peraturan perundang-undangan tersendiri (seperti UU Franchise, UU Leasing), ketentuan tersebut berlaku;</p>
+    <p>(4) Kebiasaan dan yurisprudensi mengisi kekosongan pengaturan;</p>
+    <p>(5) Doktrin analogia legis – ketentuan perjanjian bernama yang paling mirip dapat diterapkan secara analogis.</p>`
+  },
+  {
+    q: "Bagaimana akibat hukum yang timbul dari suatu perjanjian yang sah menurut KUHPerdata? Jelaskan dengan mengacu pada Pasal 1338 dan ketentuan terkait.",
+    topic: "Akibat Perjanjian",
+    pasal: "Ps. 1338-1340 BW",
+    answer: `<p>Perjanjian yang memenuhi syarat Ps. 1320 BW menimbulkan akibat hukum sebagai berikut:</p>
+    <p><strong>1. Mengikat Seperti Undang-Undang (Ps. 1338 ayat 1 BW):</strong></p>
+    <p>Perjanjian berlaku sebagai lex specialis bagi para pihak – memiliki kekuatan mengikat yang setara dengan perundang-undangan. Konsekuensinya: pemenuhan prestasi dapat dipaksakan melalui jalur hukum; debitur yang tidak berprestasi dapat dituntut ganti rugi; kreditur dapat meminta putusan pengadilan untuk pelaksanaan paksa (reële executie) atau ganti rugi.</p>
+    <p><strong>2. Tidak Dapat Dibatalkan Secara Sepihak (Ps. 1338 ayat 2 BW):</strong></p>
+    <p>Perjanjian hanya dapat diubah atau diakhiri berdasarkan kesepakatan kedua belah pihak (mutueel consent), atau berdasarkan alasan-alasan yang ditentukan undang-undang (wanprestasi berat, overmacht, berakhirnya batas waktu, terpenuhinya syarat batal). Pembatalan sepihak tanpa alasan yang sah merupakan wanprestasi.</p>
+    <p><strong>3. Dilaksanakan dengan Itikad Baik (Ps. 1338 ayat 3 BW):</strong></p>
+    <p>Para pihak wajib melaksanakan perjanjian sesuai norma kejujuran dan kepatutan, bahkan untuk hal-hal yang tidak secara eksplisit diatur dalam perjanjian. Hakim berwenang menafsirkan dan melengkapi isi perjanjian berdasarkan itikad baik.</p>
+    <p><strong>4. Berlaku bagi Para Pihak dan Ahli Waris (Ps. 1340 jo. 1318 BW):</strong></p>
+    <p>Perjanjian mengikat para pihak yang membuat dan ahli waris mereka (kecuali perjanjian bersifat sangat pribadi/intuitu personae).</p>
+    <p><strong>5. Penafsiran Perjanjian (Ps. 1342-1351 BW):</strong></p>
+    <p>Jika isi perjanjian tidak jelas, hakim menafsirkan berdasarkan: niat para pihak, kebiasaan setempat, asas itikad baik, dan penafsiran yang menguntungkan debitur (Ps. 1349 BW) apabila tetap ambigu.</p>`
+  }
+];
+
+const kasusData = [
+  {
+    id: "K-001",
+    title: "Wanprestasi dalam Perjanjian Jual Beli Tanah",
+    tags: ["Wanprestasi", "Ganti Rugi", "Ps. 1243 BW"],
+    scenario: `Pada tanggal 1 Maret 2024, Pak Ahmad (penjual) dan Ibu Budi (pembeli) menandatangani akta jual beli tanah seluas 500 m² seharga Rp500.000.000 di hadapan PPAT. Dalam perjanjian disepakati bahwa pembayaran lunas dilakukan paling lambat tanggal 30 April 2024 dan penyerahan sertipikat tanah dilakukan setelah pelunasan. Namun, hingga tanggal 30 April 2024 Ibu Budi baru membayar Rp200.000.000 (40%). Pak Ahmad telah mengirimkan surat teguran (somasi) pada tanggal 5 Mei 2024 namun Ibu Budi tidak merespons dan hingga 1 Juni 2024 tetap tidak melunasi sisa pembayaran dengan alasan bisnisnya sedang merugi.`,
+    question: "Apakah Ibu Budi telah melakukan wanprestasi? Apa saja hak-hak hukum yang dimiliki Pak Ahmad?",
+    debitur: "Ibu Budi (Pembeli)",
+    kreditur: "Pak Ahmad (Penjual)",
+    bentukWanprestasi: "Pembayaran tidak penuh/parsial (berprestasi tidak sebagaimana mestinya) dan melampaui batas waktu yang disepakati",
+    analisis: `<p>Berdasarkan fakta hukum, Ibu Budi telah memenuhi unsur-unsur wanprestasi:</p>
+    <p>(1) Ada perjanjian yang sah antara Pak Ahmad dan Ibu Budi (akta jual beli di hadapan PPAT – memenuhi Ps. 1320 BW);</p>
+    <p>(2) Ada prestasi yang harus dipenuhi oleh Ibu Budi (melunasi Rp500 juta paling lambat 30 April 2024);</p>
+    <p>(3) Ibu Budi tidak memenuhi prestasi secara penuh dan tepat waktu;</p>
+    <p>(4) Pak Ahmad telah melakukan somasi (Ps. 1238 BW) namun tidak diindahkan;</p>
+    <p>(5) Tidak ada bukti overmacht yang dapat membebaskan Ibu Budi (bisnis merugi bukan overmacht).</p>`,
+    solusi: `<p><strong>Hak-hak hukum Pak Ahmad:</strong></p>
+    <p>(1) <em>Tuntutan pemenuhan prestasi:</em> menuntut Ibu Budi membayar sisa Rp300 juta;</p>
+    <p>(2) <em>Tuntutan ganti rugi (Ps. 1243 BW):</em> biaya (kosten) yang dikeluarkan, kerugian (damnum emergens), dan bunga keterlambatan (lucrum cessans);</p>
+    <p>(3) <em>Pembatalan perjanjian (Ps. 1266 BW):</em> karena perjanjian jual beli bersifat timbal balik, Pak Ahmad dapat meminta pembatalan perjanjian via pengadilan dan pengembalian tanah;</p>
+    <p>(4) <em>Kombinasi:</em> pembatalan perjanjian sekaligus tuntutan ganti rugi.</p>`,
+    pasals: ["Ps. 1238 BW (Somasi)", "Ps. 1243 BW (Ganti Rugi)", "Ps. 1266 BW (Pembatalan Perjanjian Timbal Balik)", "Ps. 1320 BW (Syarat Sah)"]
+  },
+  {
+    id: "K-002",
+    title: "Overmacht dalam Perjanjian Pengiriman Barang",
+    tags: ["Overmacht", "Risiko", "Ps. 1244 BW"],
+    scenario: `CV Sejahtera (penjual/debitur) membuat perjanjian dengan PT Maju (pembeli/kreditur) untuk mengirimkan 10 ton beras premium senilai Rp200.000.000 paling lambat tanggal 15 Agustus 2024. Namun, pada 10 Agustus 2024 terjadi banjir bandang yang merendam gudang CV Sejahtera dan menghancurkan seluruh stok beras yang akan dikirim. CV Sejahtera mengklaim bahwa kejadian tersebut merupakan force majeure sehingga mereka tidak bertanggung jawab atas kerugian PT Maju. PT Maju berpendapat sebaliknya dan menuntut ganti rugi karena mereka sudah berkomitmen menjual kembali beras tersebut kepada pelanggannya.`,
+    question: "Apakah CV Sejahtera dapat dibebaskan dari tanggung jawab atas dasar overmacht? Bagaimana pembagian risiko dalam kasus ini?",
+    debitur: "CV Sejahtera (Penjual/Pengirim)",
+    kreditur: "PT Maju (Pembeli)",
+    bentukWanprestasi: "Tidak memenuhi prestasi (tidak dapat mengirimkan barang) – namun diklaim sebagai overmacht",
+    analisis: `<p><strong>Analisis Overmacht:</strong></p>
+    <p>Untuk berhasil menggunakan dalih overmacht, CV Sejahtera harus membuktikan (beban ada pada CV Sejahtera):</p>
+    <p>(1) <em>Ada halangan untuk berprestasi:</em> ✓ Beras hancur karena banjir;</p>
+    <p>(2) <em>Tidak dapat diduga sebelumnya:</em> Perlu diselidiki apakah lokasi gudang di daerah rawan banjir yang seharusnya sudah diketahui;</p>
+    <p>(3) <em>Tidak dapat dipertanggungjawabkan:</em> ✓ Banjir bandang adalah bencana alam;</p>
+    <p>(4) <em>Bukan akibat kelalaian debitur:</em> Apakah CV Sejahtera telah mengambil langkah-langkah pencegahan yang wajar (asuransi, gudang anti-banjir)?</p>
+    <p>Jika semua syarat terpenuhi → overmacht absolut → perikatan hapus demi hukum → CV Sejahtera tidak wajib ganti rugi (Ps. 1444 BW).</p>`,
+    solusi: `<p><strong>Implikasi Hukum:</strong></p>
+    <p>(1) Jika overmacht terbukti: perikatan hapus (Ps. 1444 BW); CV Sejahtera wajib mengembalikan uang muka jika sudah diterima; PT Maju tidak dapat menuntut ganti rugi;</p>
+    <p>(2) Jika overmacht tidak terbukti (misalnya gudang di daerah yang memang selalu banjir → seharusnya dapat diduga): CV Sejahtera wanprestasi dan bertanggung jawab atas seluruh kerugian PT Maju termasuk keuntungan yang gagal dari penjualan kembali;</p>
+    <p>(3) Rekomendasi: para pihak seharusnya mencantumkan klausula force majeure yang jelas dalam perjanjian dan CV Sejahtera seharusnya mengasuransikan barang dagangan.</p>`,
+    pasals: ["Ps. 1244 BW (Overmacht)", "Ps. 1444 BW (Musnahnya Barang)", "Ps. 1243 BW (Ganti Rugi)", "Ps. 1238 BW"]
+  },
+  {
+    id: "K-003",
+    title: "Perbuatan Melawan Hukum Akibat Kecelakaan Lalu Lintas",
+    tags: ["PMH", "Ps. 1365 BW", "Ganti Rugi"],
+    scenario: `Pada 20 September 2024, Soni mengemudikan sepeda motornya dengan kecepatan tinggi dan menerobos lampu merah di persimpangan jalan. Akibatnya, ia menabrak mobil milik Rini yang sedang melintas dengan benar sesuai lampu hijau. Mobil Rini mengalami kerusakan parah senilai Rp80.000.000. Selain itu, Rini mengalami patah tulang tangan kanan dan harus dirawat selama 3 minggu dengan biaya pengobatan Rp45.000.000. Akibat cedera tersebut, Rini tidak dapat bekerja selama 2 bulan dan kehilangan pendapatan Rp30.000.000. Soni mengakui kesalahannya namun menolak membayar ganti rugi dengan alasan tidak memiliki uang cukup.`,
+    question: "Apakah Soni dapat digugat atas dasar PMH? Apa saja kerugian yang dapat dituntut oleh Rini?",
+    debitur: "Soni (Pelaku)",
+    kreditur: "Rini (Korban)",
+    bentukWanprestasi: "Perbuatan Melawan Hukum – kecelakaan akibat kelalaian mengemudi (menerobos lampu merah)",
+    analisis: `<p><strong>Analisis Unsur PMH (Ps. 1365 BW):</strong></p>
+    <p>(1) <em>Perbuatan:</em> ✓ Soni secara aktif mengemudi dengan kecepatan tinggi dan menerobos lampu merah;</p>
+    <p>(2) <em>Melawan hukum:</em> ✓ Melanggar aturan lalu lintas (UU No. 22/2009) dan hak Rini untuk melintas dengan aman;</p>
+    <p>(3) <em>Kesalahan (schuld):</em> ✓ Ada kelalaian (culpa) – seharusnya mengetahui bahwa menerobos lampu merah membahayakan; Soni sendiri mengakui kesalahan;</p>
+    <p>(4) <em>Kerugian:</em> ✓ Kerusakan mobil, biaya pengobatan, kehilangan pendapatan;</p>
+    <p>(5) <em>Kausalitas:</em> ✓ Tabrakan langsung disebabkan oleh pelanggaran Soni.</p>
+    <p>Kesimpulan: semua unsur PMH terpenuhi → Soni bertanggung jawab.</p>`,
+    solusi: `<p><strong>Rincian Tuntutan Ganti Rugi:</strong></p>
+    <p>(1) Kerusakan mobil: Rp80.000.000;</p>
+    <p>(2) Biaya pengobatan: Rp45.000.000;</p>
+    <p>(3) Kehilangan pendapatan/lucrum cessans: Rp30.000.000;</p>
+    <p>(4) Kemungkinan: ganti rugi immaterial (penderitaan, trauma) – tergantung kebijakan hakim;</p>
+    <p><strong>Total minimal: Rp155.000.000</strong></p>
+    <p>Mekanisme: Rini dapat mengajukan gugatan perdata PMH ke Pengadilan Negeri. Ketidakmampuan finansial Soni bukan alasan penghapus tanggung jawab – aset Soni dapat disita untuk pelaksanaan putusan. Jika Soni tidak mampu bayar tunai, dapat dicicil atas persetujuan hakim.</p>`,
+    pasals: ["Ps. 1365 BW (PMH)", "Ps. 1366 BW (Kelalaian)", "Ps. 1243 BW (Ganti Rugi)", "UU No. 22 Tahun 2009"]
+  },
+  {
+    id: "K-004",
+    title: "Subrogasi dalam Klaim Asuransi",
+    tags: ["Subrogasi", "Ps. 1400 BW", "Peralihan Kreditur"],
+    scenario: `Pak Hendra memiliki polis asuransi kendaraan bermotor di PT Asuransi Aman Sentosa. Pada Januari 2024, kendaraan Pak Hendra ditabrak oleh truk milik CV Trans Jaya sehingga mengalami kerusakan total. PT Asuransi Aman Sentosa membayar klaim Pak Hendra sebesar Rp350.000.000 (nilai pertanggungan penuh). Setelah pembayaran, PT Asuransi Aman Sentosa mengajukan klaim kepada CV Trans Jaya untuk mendapatkan penggantian atas klaim yang telah mereka bayarkan kepada Pak Hendra. CV Trans Jaya menolak dengan alasan bahwa mereka tidak pernah membuat perjanjian dengan PT Asuransi Aman Sentosa.`,
+    question: "Apakah PT Asuransi Aman Sentosa berhak menuntut CV Trans Jaya? Jelaskan berdasarkan doktrin subrogasi.",
+    debitur: "CV Trans Jaya (Penabrak)",
+    kreditur: "Semula: Pak Hendra; Setelah subrogasi: PT Asuransi Aman Sentosa",
+    bentukWanprestasi: "PMH (kecelakaan yang mengakibatkan kerusakan kendaraan Pak Hendra)",
+    analisis: `<p><strong>Analisis Subrogasi (Ps. 1400-1402 BW):</strong></p>
+    <p>Subrogasi terjadi demi hukum (Ps. 1402 BW) atau karena perjanjian asuransi. PT Asuransi Aman Sentosa telah membayar kerugian Pak Hendra sebesar Rp350 juta. Dengan pembayaran tersebut, berdasarkan Ps. 1400 BW jo. klausula subrogasi dalam polis asuransi, PT Asuransi Aman Sentosa menggantikan posisi Pak Hendra sebagai kreditur terhadap CV Trans Jaya (pelaku PMH).</p>
+    <p>Alasan CV Trans Jaya – tidak ada perjanjian langsung dengan PT Asuransi – TIDAK TEPAT karena subrogasi bukan berdasarkan perjanjian antara penanggung dan pihak ketiga, melainkan karena undang-undang atau subrogasi yang melekat pada polis asuransi.</p>
+    <p>Hak Pak Hendra terhadap CV Trans Jaya (berdasarkan PMH Ps. 1365 BW) beralih sepenuhnya kepada PT Asuransi Aman Sentosa.</p>`,
+    solusi: `<p><strong>Kesimpulan dan Solusi:</strong></p>
+    <p>PT Asuransi Aman Sentosa BERHAK menuntut CV Trans Jaya sebesar Rp350.000.000 berdasarkan subrogasi. CV Trans Jaya tidak dapat mengelak dengan alasan tidak ada perjanjian langsung. Ini adalah subrogasi yang paling sering terjadi dalam praktik asuransi – dikenal sebagai "hak regres asuransi."</p>
+    <p>Hak-hak accessoir yang melekat pada piutang Pak Hendra (misalnya jaminan jika ada) juga ikut beralih ke PT Asuransi (Ps. 1401 BW). PT Asuransi dapat mengajukan gugatan PMH atas nama dirinya sendiri (bukan atas nama Pak Hendra).</p>`,
+    pasals: ["Ps. 1400 BW (Subrogasi)", "Ps. 1401 BW (Subrogasi Perjanjian)", "Ps. 1402 BW (Subrogasi UU)", "Ps. 1365 BW (PMH)"]
+  },
+  {
+    id: "K-005",
+    title: "Novasi dan Delegasi dalam Hutang Piutang Bisnis",
+    tags: ["Novasi", "Delegasi", "Ps. 1413 BW"],
+    scenario: `Bima memiliki hutang sebesar Rp500.000.000 kepada Candra (kreditur) yang jatuh tempo 31 Desember 2024. Bima sulit melunasi karena arus kasnya sedang bermasalah. Bima kemudian menemukan Dika, seorang investor yang bersedia mengambil alih kewajiban Bima kepada Candra. Bima mempertemukan Dika dengan Candra, dan setelah negosiasi, Candra menyetujui bahwa kini Dika yang menjadi debiturnya dengan hutang baru Rp520.000.000 (ditambah bunga). Mereka bertiga membuat perjanjian baru. Namun, kemudian Candra menuntut Bima juga untuk ikut bertanggung jawab atas dasar bahwa Bima pun masih terikat.`,
+    question: "Mekanisme hukum apa yang terjadi? Apakah Candra masih dapat menuntut Bima?",
+    debitur: "Semula: Bima; Setelah novasi: Dika",
+    kreditur: "Candra",
+    bentukWanprestasi: "Bukan wanprestasi – ini kasus novasi subjektif pasif (delegasi)",
+    analisis: `<p><strong>Analisis Novasi Subjektif Pasif – Delegasi:</strong></p>
+    <p>Mekanisme yang terjadi adalah DELEGASI – bentuk novasi subjektif pasif (Ps. 1413 jo. 1415 BW):</p>
+    <p>(1) Bima (debitur lama/A) aktif mencarikan Dika (calon debitur baru/C);</p>
+    <p>(2) Bima menawarkan Dika kepada Candra (kreditur/B);</p>
+    <p>(3) Candra menyetujui dan membuat perjanjian baru dengan Dika;</p>
+    <p>(4) Perikatan lama (Bima-Candra) hapus dan digantikan perikatan baru (Dika-Candra).</p>
+    <p>Akibat novasi: perikatan lama HAPUS → kewajiban Bima kepada Candra BERAKHIR. Hak-hak accessoir (jaminan dari Bima) tidak ikut berpindah ke perjanjian baru kecuali diperjanjikan.</p>`,
+    solusi: `<p><strong>Kesimpulan:</strong></p>
+    <p>Candra TIDAK DAPAT lagi menuntut Bima karena perikatan lama telah hapus melalui novasi. Bima telah bebas dari kewajiban sejak saat terjadinya delegasi yang disepakati oleh Candra. Ini adalah konsekuensi dari diterimanya novasi – kreditur yang menerima debitur baru melepaskan haknya terhadap debitur lama (Ps. 1416 BW).</p>
+    <p>Pengecualian: jika dalam perjanjian delegasi tersebut terdapat klausula bahwa Bima tetap bertanggung jawab sebagai penanggung (borg), barulah Candra dapat menuntut Bima dalam kapasitas sebagai penjamin (borgtocht, Ps. 1820 BW) – bukan sebagai debitur utama.</p>`,
+    pasals: ["Ps. 1413 BW (Novasi)", "Ps. 1415 BW (Novasi Subjektif)", "Ps. 1416 BW (Akibat Novasi)", "Ps. 1820 BW (Borgtocht)"]
+  },
+  {
+    id: "K-006",
+    title: "Cessie dalam Transaksi Jual Beli Piutang",
+    tags: ["Cessie", "Ps. 613 BW", "Pengalihan Piutang"],
+    scenario: `PT Niaga (A) memiliki piutang Rp1 miliar kepada PT Berkah (debitur/B) yang jatuh tempo Maret 2025. PT Niaga sedang mengalami kesulitan keuangan dan membutuhkan dana segera. Untuk itu, PT Niaga menjual piutangnya tersebut kepada PT Investasi Cerdas (C) seharga Rp850 juta (dengan diskon). Setelah perjanjian jual beli piutang ditandatangani antara PT Niaga dan PT Investasi Cerdas, PT Investasi Cerdas langsung mendatangi PT Berkah dan menuntut pembayaran Rp1 miliar. PT Berkah menolak karena mengklaim tidak pernah membuat perjanjian apapun dengan PT Investasi Cerdas.`,
+    question: "Apakah PT Investasi Cerdas dapat menagih PT Berkah? Apa syarat agar cessie sah dan berlaku terhadap PT Berkah?",
+    debitur: "PT Berkah (Debitur Piutang)",
+    kreditur: "Semula: PT Niaga; Setelah cessie: PT Investasi Cerdas",
+    bentukWanprestasi: "Bukan wanprestasi – ini kasus cessie (pengalihan piutang) beserta syarat berlakunya",
+    analisis: `<p><strong>Analisis Cessie (Ps. 613 BW):</strong></p>
+    <p>Cessie adalah cara levering (penyerahan) hak piutang atas nama kepada pihak lain. Perjanjian jual beli piutang antara PT Niaga dan PT Investasi Cerdas baru bersifat obligatoir – belum memindahkan hak.</p>
+    <p>Agar hak piutang benar-benar beralih ke PT Investasi Cerdas sehingga dapat menagih PT Berkah, diperlukan:</p>
+    <p>(1) <em>Akta Cessie</em> – tertulis (otentik atau bawah tangan) yang memuat pengalihan piutang;</p>
+    <p>(2) <em>Betekening (pemberitahuan)</em> kepada PT Berkah (debitur) ATAU pengakuan dari PT Berkah atas cessie tersebut.</p>
+    <p>Jika PT Berkah belum diberitahu/mengakui → cessie belum berlaku terhadap PT Berkah → PT Berkah boleh menolak.</p>`,
+    solusi: `<p><strong>Solusi:</strong></p>
+    <p>Jika akta cessie sudah dibuat dan PT Berkah sudah diberitahu secara resmi: PT Berkah WAJIB membayar kepada PT Investasi Cerdas (kreditur baru) dan tidak dapat lagi membayar kepada PT Niaga. Penolakan PT Berkah tidak beralasan karena cessie tidak memerlukan persetujuan debitur – cukup pemberitahuan.</p>
+    <p>Jika belum ada pemberitahuan resmi: PT Investasi Cerdas harus terlebih dahulu mengirimkan surat pemberitahuan cessie kepada PT Berkah. Setelah itu, PT Berkah terikat untuk membayar kepada PT Investasi Cerdas sebesar Rp1 miliar (nilai piutang asli, bukan harga beli cessie Rp850 juta).</p>`,
+    pasals: ["Ps. 613 BW (Cessie)", "Ps. 1457 BW (Jual Beli)", "Ps. 1400 BW (perbandingan dengan Subrogasi)"]
+  },
+  {
+    id: "K-007",
+    title: "Kompensasi dalam Utang-Piutang Bisnis",
+    tags: ["Kompensasi", "Ps. 1425 BW", "Perjumpaan Hutang"],
+    scenario: `Andi berhutang Rp200.000.000 kepada Benny (telah jatuh tempo), dan sebaliknya Benny juga berhutang Rp150.000.000 kepada Andi (telah jatuh tempo). Andi mengklaim bahwa kedua hutang tersebut telah terkompensasi/terperjumpakan secara otomatis sehingga ia hanya perlu membayar selisihnya yaitu Rp50.000.000 kepada Benny. Benny menolak dan bersikeras bahwa ia tidak pernah menyetujui kompensasi apapun dan menuntut Andi membayar penuh Rp200.000.000.`,
+    question: "Apakah kompensasi/perjumpaan hutang terjadi secara otomatis? Apakah posisi Andi atau Benny yang benar secara hukum?",
+    debitur: "Andi (terhadap Benny) dan Benny (terhadap Andi) – saling berutang",
+    kreditur: "Benny dan Andi – keduanya sekaligus kreditur dan debitur",
+    bentukWanprestasi: "Perselisihan mengenai terjadinya kompensasi demi hukum",
+    analisis: `<p><strong>Analisis Kompensasi (Ps. 1425-1435 BW):</strong></p>
+    <p>Berdasarkan Ps. 1426 BW, kompensasi terjadi DEMI HUKUM (ipso jure) – bahkan tanpa sepengetahuan atau persetujuan para pihak. Syaratnya (Ps. 1427 BW):</p>
+    <p>(1) ✓ Dua orang saling berutang (Andi-Benny);</p>
+    <p>(2) ✓ Prestasi sejenis (keduanya berupa uang);</p>
+    <p>(3) ✓ Kedua hutang sudah dapat ditagih (jatuh tempo);</p>
+    <p>(4) Tidak ada larangan kompensasi dari pihak ketiga (Ps. 1434 BW – derden beslag).</p>
+    <p>Kesimpulan: kompensasi TELAH TERJADI secara hukum sejak saat kedua hutang bersama-sama terpenuhi syaratnya – meski tanpa persetujuan Benny.</p>`,
+    solusi: `<p><strong>Posisi Hukum:</strong></p>
+    <p>ANDI BENAR – kompensasi terjadi demi hukum. Hutang saling terkompensasi sebesar Rp150.000.000 (jumlah hutang yang lebih kecil). Kini hanya tersisa hutang Andi kepada Benny sebesar Rp50.000.000 (Rp200 juta – Rp150 juta).</p>
+    <p>Benny tidak dapat menolak kompensasi karena kompensasi bukan hasil kesepakatan melainkan operasi hukum otomatis. Benny hanya berhak menagih sisa Rp50.000.000 kepada Andi.</p>
+    <p>Jika Benny tetap memaksa menuntut Rp200 juta penuh ke pengadilan, hakim akan memperhitungkan kompensasi dan hanya mengabulkan Rp50 juta.</p>`,
+    pasals: ["Ps. 1425 BW (Kompensasi)", "Ps. 1426 BW (Ipso Jure)", "Ps. 1427 BW (Syarat)", "Ps. 1434 BW (Larangan)"]
+  },
+  {
+    id: "K-008",
+    title: "Perjanjian yang Mengandung Causa Terlarang",
+    tags: ["Causa Terlarang", "Ps. 1337 BW", "Batal Demi Hukum"],
+    scenario: `Dua pengusaha, Pak Rudi dan Pak Slamet, membuat perjanjian tertulis dimana Pak Rudi menerima pembayaran Rp1 miliar dari Pak Slamet dan sebagai imbalannya Pak Rudi berjanji akan mempengaruhi pejabat instansi pemerintah agar tender proyek jalan senilai Rp50 miliar diberikan kepada perusahaan Pak Slamet (suap). Ketika Pak Rudi tidak berhasil memenuhi janjinya karena pejabat bersangkutan menolak, Pak Slamet menuntut pengembalian uang Rp1 miliar melalui gugatan perdata atas dasar wanprestasi.`,
+    question: "Apakah gugatan Pak Slamet dapat diterima pengadilan? Bagaimana status hukum perjanjian tersebut?",
+    debitur: "Pak Rudi",
+    kreditur: "Pak Slamet",
+    bentukWanprestasi: "Tidak relevan – perjanjian ini mengandung causa terlarang",
+    analisis: `<p><strong>Analisis Status Perjanjian:</strong></p>
+    <p>Perjanjian antara Pak Rudi dan Pak Slamet mengandung CAUSA TERLARANG (Ps. 1337 BW): tujuan perjanjian adalah menyuap pejabat pemerintah untuk memenangkan tender – bertentangan dengan:</p>
+    <p>(1) Undang-undang yang bersifat memaksa (UU No. 20/2001 tentang Pemberantasan Tindak Pidana Korupsi);</p>
+    <p>(2) Kesusilaan yang baik;</p>
+    <p>(3) Ketertiban umum.</p>
+    <p>Akibat hukum: perjanjian BATAL DEMI HUKUM (Ps. 1335 BW) – sejak semula dianggap tidak pernah ada.</p>`,
+    solusi: `<p><strong>Gugatan Pak Slamet:</strong></p>
+    <p>Gugatan wanprestasi Pak Slamet TIDAK DAPAT DITERIMA karena perjanjian yang menjadi dasarnya batal demi hukum – tidak ada perjanjian yang sah. Pengadilan tidak akan membantu pihak yang membangun gugatannya di atas perjanjian yang melanggar hukum (ex turpi causa non oritur actio – dari perbuatan hina tidak lahir hak menuntut).</p>
+    <p>Konsekuensi lebih lanjut: Pak Rudi dan Pak Slamet keduanya berpotensi diproses secara pidana atas dugaan korupsi/suap. Uang Rp1 miliar yang telah dibayar Pak Slamet kemungkinan akan dirampas oleh negara sebagai hasil tindak pidana korupsi, bukan dikembalikan kepada Pak Slamet.</p>`,
+    pasals: ["Ps. 1335 BW (Causa Palsu)", "Ps. 1337 BW (Causa Terlarang)", "Ps. 1320 BW (Syarat Sah)", "UU No. 20/2001 (Tipikor)"]
+  },
+  {
+    id: "K-009",
+    title: "Perjanjian dengan Pihak yang Tidak Cakap",
+    tags: ["Kecakapan", "Ps. 1330 BW", "Vernietigbaar"],
+    scenario: `Sinta, berusia 17 tahun (belum dewasa, belum menikah), menandatangani perjanjian kredit motor senilai Rp25.000.000 dengan sebuah dealer motor tanpa sepengetahuan atau izin orang tuanya. Dealer menyerahkan motor kepada Sinta. Beberapa bulan kemudian, orang tua Sinta mengetahui hal ini dan hendak membatalkan perjanjian tersebut karena menganggap Sinta tidak cakap hukum untuk membuat perjanjian.`,
+    question: "Apakah perjanjian kredit motor tersebut dapat dibatalkan? Siapa yang berhak meminta pembatalan dan dalam jangka waktu berapa?",
+    debitur: "Sinta (17 tahun, belum dewasa)",
+    kreditur: "Dealer Motor",
+    bentukWanprestasi: "Bukan wanprestasi – ini kasus kekurangan syarat subjektif (kecakapan)",
+    analisis: `<p><strong>Analisis Kecakapan (Ps. 1330 BW):</strong></p>
+    <p>Berdasarkan Ps. 1330 BW, yang tidak cakap membuat perjanjian antara lain: orang yang belum dewasa. Berdasarkan Ps. 330 BW, belum dewasa adalah yang belum mencapai umur 21 tahun dan tidak/belum menikah.</p>
+    <p>Sinta (17 tahun, belum menikah) = TIDAK CAKAP membuat perjanjian.</p>
+    <p>Akibatnya: kekurangan syarat subjektif (kecakapan) → perjanjian dapat dibatalkan (VERNIETIGBAAR), bukan batal demi hukum. Perjanjian tetap berlaku mengikat selama belum dimintakan pembatalan.</p>
+    <p>Ini adalah negotium claudicans (Ps. 1331 ayat 2 BW): perjanjian pincang yang pembatalannya hanya dapat dituntut oleh pihak yang tidak cakap (atau wakilnya).</p>`,
+    solusi: `<p><strong>Hak Pembatalan:</strong></p>
+    <p>Orang tua Sinta (sebagai wali) BERHAK mengajukan tuntutan pembatalan perjanjian ke pengadilan (Ps. 1446 BW). Dealer tidak dapat meminta pembatalan – karena negotium claudicans hanya memberikan hak kepada pihak yang tidak cakap.</p>
+    <p>Tenggang waktu pengajuan pembatalan: 5 tahun sejak Sinta dewasa atau sejak diketahuinya cacat kecakapan (Ps. 1454 BW).</p>
+    <p>Jika dibatalkan: motor dikembalikan ke dealer; uang yang telah dibayar Sinta dikembalikan. Alternatif lain: orang tua dapat mengesahkan/ratifikasi perjanjian sehingga perjanjian menjadi sempurna (Ps. 1456 BW), atau Sinta sendiri dapat menguatkan perjanjian setelah mencapai usia 21 tahun.</p>`,
+    pasals: ["Ps. 1330 BW (Tidak Cakap)", "Ps. 1446 BW (Pembatalan)", "Ps. 1454 BW (Daluarsa 5 Tahun)", "Ps. 1331 BW (Negotium Claudicans)"]
+  },
+  {
+    id: "K-010",
+    title: "Actio Pauliana: Perbuatan Debitur yang Merugikan Kreditur",
+    tags: ["Actio Pauliana", "Ps. 1341 BW", "Kreditur"],
+    scenario: `PT Gagah Perkasa memiliki hutang kepada Bank Sentosa sebesar Rp10 miliar yang sudah jatuh tempo dan tidak dapat dilunasi. Dua minggu sebelum dinyatakan pailit, Direktur PT Gagah Perkasa secara diam-diam menghibahkan tanah dan bangunan milik perusahaan (senilai Rp8 miliar) kepada adik iparnya, Pak Wahyu. Bank Sentosa kemudian mengetahui hibah tersebut dan menduga bahwa hibah dilakukan untuk mengamankan aset agar tidak dapat disita.`,
+    question: "Upaya hukum apa yang dapat ditempuh Bank Sentosa untuk membatalkan hibah tersebut? Apa yang harus dibuktikan Bank Sentosa?",
+    debitur: "PT Gagah Perkasa",
+    kreditur: "Bank Sentosa",
+    bentukWanprestasi: "Perbuatan debitur (hibah) yang tidak diwajibkan dan merugikan kreditur",
+    analisis: `<p><strong>Analisis Actio Pauliana (Ps. 1341 BW):</strong></p>
+    <p>Bank Sentosa dapat menggunakan actio pauliana – hak kreditur untuk meminta pembatalan perbuatan hukum debitur yang tidak diwajibkan dan merugikan kreditur. Yang harus dibuktikan Bank Sentosa:</p>
+    <p>(1) ✓ Ada perbuatan hukum: hibah tanah senilai Rp8 miliar;</p>
+    <p>(2) ✓ Perbuatan tidak diwajibkan: tidak ada kewajiban hukum PT Gagah Perkasa untuk menghibahkan aset ke adik ipar;</p>
+    <p>(3) ✓ Merugikan kreditur: mengurangi kemampuan debitur membayar hutang;</p>
+    <p>(4) Debitur dan pihak ketiga (Pak Wahyu) mengetahui bahwa hibah merugikan Bank Sentosa – ini yang paling sulit dibuktikan.</p>`,
+    solusi: `<p><strong>Solusi Hukum:</strong></p>
+    <p>Bank Sentosa mengajukan gugatan actio pauliana ke Pengadilan Niaga (dalam konteks kepailitan) atau Pengadilan Negeri. Beban pembuktian ada pada Bank Sentosa untuk membuktikan keempat unsur di atas.</p>
+    <p>Jika terbukti: hibah dibatalkan → tanah kembali menjadi aset PT Gagah Perkasa → dapat disita untuk pelunasan hutang ke Bank Sentosa. Pihak ketiga (Pak Wahyu) yang beritikad baik dilindungi – namun dalam kasus ini sulit berdalih itikad baik mengingat Pak Wahyu adalah adik ipar Direktur dan hibah dilakukan menjelang kepailitan.</p>
+    <p>Tenggang waktu actio pauliana: 5 tahun (Ps. 1454 BW).</p>`,
+    pasals: ["Ps. 1341 BW (Actio Pauliana)", "Ps. 1454 BW (Daluarsa)", "UU No. 37/2004 (Kepailitan)", "Ps. 1365 BW"]
+  },
+  {
+    id: "K-011",
+    title: "Risiko dalam Perjanjian Jual Beli Benda Tertentu",
+    tags: ["Risiko", "Ps. 1460 BW", "Jual Beli"],
+    scenario: `Pada tanggal 1 Oktober 2024, Pandu (penjual) dan Qori (pembeli) membuat perjanjian jual beli atas sebuah lukisan antik yang telah ditentukan secara spesifik seharga Rp500.000.000. Dalam perjanjian disepakati bahwa penyerahan lukisan akan dilakukan pada 31 Oktober 2024 dan pembayaran setelah penyerahan. Namun pada 20 Oktober 2024, sebelum lukisan diserahkan, terjadi kebakaran di rumah Pandu (bukan karena kelalaian Pandu maupun Qori) yang memusnahkan lukisan tersebut. Pandu berpendapat bahwa Qori tetap wajib membayar Rp500 juta karena risiko sudah beralih. Qori berpendapat sebaliknya.`,
+    question: "Siapakah yang menanggung risiko atas musnahnya lukisan tersebut? Bagaimana pembagian risiko menurut KUHPerdata?",
+    debitur: "Pandu (Penjual, wajib menyerahkan lukisan)",
+    kreditur: "Qori (Pembeli, wajib membayar harga)",
+    bentukWanprestasi: "Bukan wanprestasi – ini kasus risiko/overmacht sebelum penyerahan",
+    analisis: `<p><strong>Analisis Risiko Jual Beli (Ps. 1460 BW):</strong></p>
+    <p>Pasal 1460 BW (kontroversial): dalam jual beli benda tertentu (species), risiko beralih ke pembeli SEJAK SAAT PERJANJIAN, meski belum diserahkan.</p>
+    <p>Berdasarkan ketentuan ini: risiko musnahnya lukisan ada pada QORI (pembeli) meski lukisan belum diserahkan. Pandu berdalih berdasarkan Ps. 1460 BW ini.</p>
+    <p>Namun, Ps. 1460 BW ini sangat dikritik oleh doktrin dan yurisprudensi karena dianggap tidak adil. Beberapa hakim dan akademisi berpendapat bahwa risiko seharusnya ada pada penjual selama belum ada penyerahan (in periculum est venditoris).</p>`,
+    solusi: `<p><strong>Posisi Hukum dan Solusi:</strong></p>
+    <p>Secara tekstual Ps. 1460 BW: Pandu (penjual) benar – risiko pada Qori (pembeli) → Qori tetap wajib membayar Rp500 juta meski lukisan musnah.</p>
+    <p>Namun berdasarkan perkembangan yurisprudensi dan doktrin modern: risiko ada pada penjual selama barang belum diserahkan → Qori tidak wajib membayar dan perikatan hapus.</p>
+    <p>Solusi praktis: para pihak seharusnya mencantumkan klausula risiko yang jelas dalam perjanjian untuk menghindari perdebatan ini. Bila tidak ada klausula, hakim akan mempertimbangkan asas itikad baik, kepatutan, dan perkembangan yurisprudensi. Pandu tidak boleh menuntut harga penuh jika lukisan musnah bukan karena kesalahan Qori.</p>`,
+    pasals: ["Ps. 1460 BW (Risiko Jual Beli)", "Ps. 1444 BW (Musnahnya Barang)", "Ps. 1338 BW (Itikad Baik)", "Ps. 1244 BW (Overmacht)"]
+  },
+  {
+    id: "K-012",
+    title: "Tanggung Renteng dalam Pinjaman Perusahaan",
+    tags: ["Tanggung Renteng", "Ps. 1278 BW", "Debitur Solidair"],
+    scenario: `PT Andalan, CV Harapan, dan Firma Sejati bersama-sama meminjam uang dari Bank Nusantara sebesar Rp3 miliar dengan menjanjikan bahwa ketiganya bertanggung renteng (solidair). Ketika hutang jatuh tempo, ketiga debitur tidak dapat membayar: PT Andalan mengalami kebangkrutan, CV Harapan hanya mampu membayar Rp500 juta, dan Firma Sejati mengklaim tidak memiliki aset. Bank Nusantara kemudian menuntut CV Harapan untuk membayar seluruh sisa hutang Rp2,5 miliar.`,
+    question: "Apakah Bank Nusantara dapat menuntut CV Harapan untuk membayar seluruh Rp2,5 miliar? Bagaimana mekanisme hukumnya?",
+    debitur: "PT Andalan, CV Harapan, Firma Sejati (tanggung renteng)",
+    kreditur: "Bank Nusantara",
+    bentukWanprestasi: "Wanprestasi dalam perikatan tanggung renteng – tidak melunasi hutang",
+    analisis: `<p><strong>Analisis Tanggung Renteng (Ps. 1278-1295 BW):</strong></p>
+    <p>Karena para pihak secara tegas menyepakati tanggung renteng (solidaritas debitur), Bank Nusantara berhak menuntut seluruh hutang dari salah satu, beberapa, atau semua debitur sekaligus (Ps. 1278 BW).</p>
+    <p>Bank Nusantara telah menerima Rp500 juta dari CV Harapan. Sisa hutang: Rp3 miliar – Rp500 juta = Rp2,5 miliar. Bank Nusantara BERHAK menuntut sisa Rp2,5 miliar seluruhnya kepada CV Harapan saja tanpa harus menunggu atau terlebih dahulu menuntut PT Andalan dan Firma Sejati.</p>`,
+    solusi: `<p><strong>Mekanisme Hukum:</strong></p>
+    <p>Bank Nusantara dapat mengajukan gugatan kepada CV Harapan untuk membayar sisa Rp2,5 miliar. Kebangkrutan PT Andalan dan ketidakmampuan Firma Sejati bukan alasan CV Harapan untuk menolak (Ps. 1280 BW – debitur tanggung renteng tidak dapat mengajukan pembelaan yang bersifat pribadi debitur lain).</p>
+    <p>Namun CV Harapan memiliki <em>hak regres:</em> setelah membayar Rp2,5 miliar, CV Harapan berhak menuntut penggantian dari PT Andalan dan Firma Sejati masing-masing sebesar bagian mereka (berdasarkan subrogasi demi hukum Ps. 1402 BW). Masing-masing menanggung 1/3 dari total hutang (Rp1 miliar) – dikurangi yang sudah dibayar CV Harapan – sehingga CV Harapan dapat menagih sekitar Rp833 juta dari tiap co-debitur.</p>`,
+    pasals: ["Ps. 1278 BW (Tanggung Renteng)", "Ps. 1280 BW", "Ps. 1402 BW (Subrogasi UU)", "Ps. 1283 BW (Hak Regres)"]
+  },
+  {
+    id: "K-013",
+    title: "Percampuran Hutang karena Pewarisan",
+    tags: ["Confusio", "Ps. 1436 BW", "Pewarisan"],
+    scenario: `Bapak Hartono memiliki hutang kepada anaknya, Dewi, sebesar Rp200 juta (berupa pinjaman yang terdokumentasi). Bapak Hartono meninggal dunia dan meninggalkan warisan. Dewi adalah satu-satunya ahli waris yang menerima warisan tersebut secara penuh (tanpa syarat). Dalam warisan tersebut terdapat catatan piutang Bapak Hartono kepada pihak lain dan juga kewajiban hutang kepada Dewi. Dewi kemudian hendak menuntut pelunasan hutang Bapak Hartono Rp200 juta dari "harta warisan."`,
+    question: "Apakah tuntutan Dewi dapat dibenarkan? Apa yang terjadi pada hutang Bapak Hartono kepadanya?",
+    debitur: "Bapak Hartono (pewaris, sekarang warisannya dikelola Dewi)",
+    kreditur: "Dewi (sekaligus ahli waris tunggal)",
+    bentukWanprestasi: "Bukan wanprestasi – ini kasus percampuran hutang (confusio) karena pewarisan",
+    analisis: `<p><strong>Analisis Percampuran Hutang (Ps. 1436-1437 BW):</strong></p>
+    <p>Ketika Dewi menerima warisan Bapak Hartono secara penuh, terjadi percampuran hutang (confusio) demi hukum:</p>
+    <p>(1) Bapak Hartono (melalui warisannya) adalah debitur terhadap Dewi;</p>
+    <p>(2) Dewi adalah kreditur terhadap Bapak Hartono;</p>
+    <p>(3) Sebagai ahli waris tunggal, Dewi mewarisi seluruh hak dan kewajiban Bapak Hartono;</p>
+    <p>(4) Ini berarti Dewi kini berposisi sebagai kreditur dan sekaligus debitur terhadap dirinya sendiri → tidak mungkin seseorang menagih dirinya sendiri → hutang hapus demi hukum (ipso jure).</p>`,
+    solusi: `<p><strong>Kesimpulan:</strong></p>
+    <p>Hutang Bapak Hartono kepada Dewi sebesar Rp200 juta HAPUS DEMI HUKUM karena percampuran hutang (Ps. 1436 BW). Dewi TIDAK DAPAT menuntut "dirinya sendiri" (dalam kapasitas ahli waris) untuk membayar hutang tersebut.</p>
+    <p>Piutang Dewi kepada Bapak Hartono cukup diperhitungkan dalam pembagian warisan saja – bukan sebagai hutang yang harus dilunasi secara terpisah. Jika ada ahli waris lain yang turut menerima warisan bersama Dewi, maka confusio hanya terjadi sebatas bagian warisan yang diterima Dewi, sedangkan bagian warisan ahli waris lain tidak hapus.</p>`,
+    pasals: ["Ps. 1436 BW (Confusio)", "Ps. 1437 BW", "Ps. 833 BW (Pewarisan)", "Ps. 1318 BW (Ahli Waris)"]
+  },
+  {
+    id: "K-014",
+    title: "Derden Beding dalam Perjanjian Asuransi Jiwa",
+    tags: ["Derden Beding", "Ps. 1317 BW", "Pihak Ketiga"],
+    scenario: `Pak Erwin membuat perjanjian asuransi jiwa dengan PT Asuransi Mulia dengan membayar premi bulanan. Dalam polis ditentukan bahwa jika Pak Erwin meninggal dunia, uang pertanggungan Rp2 miliar akan dibayarkan kepada istrinya, Ibu Fitri, sebagai penerima manfaat (beneficiary). Pak Erwin meninggal pada Maret 2025. PT Asuransi menolak membayar kepada Ibu Fitri dengan alasan bahwa Ibu Fitri tidak pernah menjadi pihak dalam perjanjian asuransi sehingga tidak memiliki hak tagih.`,
+    question: "Apakah Ibu Fitri memiliki hak untuk menuntut pembayaran uang pertanggungan? Jelaskan berdasarkan prinsip derden beding.",
+    debitur: "PT Asuransi Mulia",
+    kreditur: "Ibu Fitri (penerima manfaat/beneficiary)",
+    bentukWanprestasi: "PT Asuransi menolak membayar uang pertanggungan kepada beneficiary",
+    analisis: `<p><strong>Analisis Derden Beding (Ps. 1317 BW):</strong></p>
+    <p>Perjanjian asuransi jiwa antara Pak Erwin dan PT Asuransi merupakan contoh klasik derden beding (perjanjian untuk kepentingan pihak ketiga – Ps. 1317 BW). Meski Ibu Fitri bukan pihak dalam perjanjian asuransi, Pak Erwin telah membuat janji (stipulasi) dengan PT Asuransi bahwa manfaat akan diberikan kepada Ibu Fitri.</p>
+    <p>Berdasarkan Ps. 1317 BW, derden beding dimungkinkan dalam perjanjian. Ibu Fitri sebagai pihak ketiga memiliki hak untuk menerima manfaat tersebut setelah ia menyatakan menerima (aanvaarding) janji tersebut – dalam hal ini, dengan mengajukan klaim.</p>
+    <p>Alasan PT Asuransi TIDAK TEPAT – hukum asuransi justru mengakui dan melindungi hak beneficiary.</p>`,
+    solusi: `<p><strong>Kesimpulan dan Solusi:</strong></p>
+    <p>Ibu Fitri BERHAK menuntut pembayaran Rp2 miliar dari PT Asuransi Mulia berdasarkan: (1) Ps. 1317 BW (derden beding); (2) UU No. 40/2014 tentang Perasuransian yang mengakui hak penerima manfaat.</p>
+    <p>Ibu Fitri dapat mengajukan gugatan wanprestasi terhadap PT Asuransi karena menolak memenuhi kewajiban berdasarkan polis. Penolakan PT Asuransi tidak berdasarkan hukum. Prinsip bahwa hanya pihak perjanjian yang dapat menuntut (Ps. 1315 BW) dikecualikan oleh Ps. 1317 BW untuk kasus derden beding seperti ini.</p>`,
+    pasals: ["Ps. 1317 BW (Derden Beding)", "Ps. 1315 BW (Asas Kepribadian)", "Ps. 1340 BW", "UU No. 40/2014 (Perasuransian)"]
+  },
+  {
+    id: "K-015",
+    title: "Wanprestasi dan Klausula Penalti dalam Perjanjian Konstruksi",
+    tags: ["Wanprestasi", "Ganti Rugi", "Klausula Penalti"],
+    scenario: `PT Bangun Jaya (kontraktor) mengadakan perjanjian pemborongan dengan Pemda Kota Maju untuk membangun gedung sekolah senilai Rp15 miliar. Dalam kontrak ditetapkan bahwa bangunan harus selesai pada 1 Desember 2024. Jika terlambat, kontraktor wajib membayar denda keterlambatan (penalti) Rp50 juta per hari. Gedung baru selesai pada 20 Januari 2025 – terlambat 50 hari. PT Bangun Jaya menolak membayar penalti Rp2,5 miliar dengan alasan keterlambatan karena hujan terus-menerus (iklim ekstrem) dan kelangkaan bahan bangunan akibat krisis global.`,
+    question: "Apakah PT Bangun Jaya dapat terhindar dari kewajiban membayar penalti atas dasar overmacht? Bagaimana hakim seharusnya menilai kasus ini?",
+    debitur: "PT Bangun Jaya (Kontraktor)",
+    kreditur: "Pemda Kota Maju",
+    bentukWanprestasi: "Keterlambatan penyerahan pekerjaan (terlambat 50 hari dari batas waktu)",
+    analisis: `<p><strong>Analisis Klaim Overmacht:</strong></p>
+    <p>PT Bangun Jaya mengklaim overmacht atas dua alasan:</p>
+    <p>(1) <em>Hujan terus-menerus/iklim ekstrem:</em> di Indonesia, musim hujan adalah sesuatu yang dapat diprediksi (bukan peristiwa yang tidak dapat diduga). Kontraktor profesional seharusnya sudah memperhitungkan faktor cuaca dalam jadwal konstruksi. Kemungkinan besar BUKAN overmacht.</p>
+    <p>(2) <em>Kelangkaan bahan bangunan akibat krisis global:</em> ini lebih kuat sebagai klaim overmacht relatif – namun kontraktor profesional seharusnya mengamankan pasokan lebih awal. Perlu dinilai apakah kelangkaan ini benar-benar tidak dapat diantisipasi.</p>
+    <p>Klausa penalti dalam kontrak merupakan perjanjian ganti rugi yang telah ditetapkan lebih dahulu (liquidated damages/boetebeding – Ps. 1249 BW).</p>`,
+    solusi: `<p><strong>Penilaian Hakim:</strong></p>
+    <p>Hakim akan menilai: (1) Apakah kondisi cuaca dan kelangkaan bahan benar-benar di luar perkiraan wajar kontraktor profesional; (2) Apakah PT Bangun Jaya telah mengambil langkah-langkah yang wajar untuk memitigasi keterlambatan; (3) Apakah ada hubungan kausal langsung antara kondisi tersebut dan keterlambatan 50 hari.</p>
+    <p>Kemungkinan putusan: Hakim dapat mengurangi penalti berdasarkan asas itikad baik (Ps. 1338 ayat 3 BW) jika penalti dianggap terlalu memberatkan (Ps. 1252 BW – hakim dapat meringankan jika penalti berlebihan), atau membebaskan sebagian berdasarkan overmacht parsial yang terbukti. Namun jika tidak terbukti overmacht, PT Bangun Jaya wajib membayar penuh Rp2,5 miliar.</p>`,
+    pasals: ["Ps. 1249 BW (Klausula Denda)", "Ps. 1244 BW (Overmacht)", "Ps. 1252 BW (Mitigasi Penalti)", "Ps. 1338 BW (Itikad Baik)"]
+  }
+];
+
+// ═══════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════
+let pgOrder = pgData.map((_, i) => i);
+let currentPGIndex = 0;
+let answered = new Array(pgData.length).fill(null);
+let correctCount = 0;
+let wrongCount = 0;
+let timerInterval;
+let seconds = 0;
+let isDark = false;
+
+// ═══════════════════════════════════════════════════
+// TIMER
+// ═══════════════════════════════════════════════════
+function startTimer() {
+  timerInterval = setInterval(() => {
+    seconds++;
+    const h = String(Math.floor(seconds / 3600)).padStart(2, '0');
+    const m = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
+    const s = String(seconds % 60).padStart(2, '0');
+    document.getElementById('timerDisplay').textContent = `${h}:${m}:${s}`;
+  }, 1000);
+}
+
+// ═══════════════════════════════════════════════════
+// DARK MODE
+// ═══════════════════════════════════════════════════
+function toggleDark() {
+  isDark = !isDark;
+  document.documentElement.setAttribute('data-theme', isDark ? 'dark' : '');
+  document.getElementById('darkBtn').textContent = isDark ? '☀️' : '🌙';
+}
+
+// ═══════════════════════════════════════════════════
+// SECTION NAVIGATION
+// ═══════════════════════════════════════════════════
+function showSection(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById('section-' + id).classList.add('active');
+  document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ═══════════════════════════════════════════════════
+// PILIHAN GANDA
+// ═══════════════════════════════════════════════════
+function renderPG() {
+  const container = document.getElementById('pgContainer');
+  const qi = pgOrder[currentPGIndex];
+  const q = pgData[qi];
+  const total = pgOrder.length;
+  const pct = Math.round((currentPGIndex / total) * 100);
+
+  document.getElementById('pgProgressLabel').textContent = `Soal ${currentPGIndex + 1} dari ${total}`;
+  document.getElementById('pgProgressFill').style.width = pct + '%';
+  document.getElementById('pgProgressPct').textContent = pct + '%';
+
+  const letters = ['A', 'B', 'C', 'D'];
+  const userAnswer = answered[qi];
+
+  let choicesHtml = q.choices.map((c, i) => {
+    let cls = 'choice-btn';
+    if (userAnswer !== null) {
+      if (i === q.answer) cls += ' correct';
+      else if (i === userAnswer && i !== q.answer) cls += ' wrong';
+    }
+    return `<button class="${cls}" onclick="selectAnswer(${qi}, ${i})" ${userAnswer !== null ? 'disabled' : ''}>
+      <span class="choice-letter">${letters[i]}</span>
+      <span>${c}</span>
+    </button>`;
+  }).join('');
+
+  let feedbackHtml = '';
+  if (userAnswer !== null) {
+    const correct = userAnswer === q.answer;
+    feedbackHtml = `<div class="feedback ${correct ? 'correct-fb' : 'wrong-fb'} show">
+      <div class="feedback-title">${correct ? '✅ Jawaban Benar!' : '❌ Jawaban Kurang Tepat'}</div>
+      <div class="feedback-text">${q.explanation}</div>
+      <div class="feedback-pasal">📖 Dasar Hukum: ${q.pasal}</div>
+    </div>`;
+  }
+
+  container.innerHTML = `
+    <div class="quiz-card">
+      <div class="q-meta">
+        <span class="q-num">No. ${currentPGIndex + 1}</span>
+        <span class="q-topic">${q.topic}</span>
+        <span class="q-pasal">${q.pasal}</span>
+      </div>
+      <div class="q-text">${q.q}</div>
+      <div class="choices">${choicesHtml}</div>
+      ${feedbackHtml}
+    </div>`;
+}
+
+function selectAnswer(qi, choiceIdx) {
+  if (answered[qi] !== null) return;
+  answered[qi] = choiceIdx;
+  if (choiceIdx === pgData[qi].answer) {
+    correctCount++;
+  } else {
+    wrongCount++;
+  }
+  updateScoreUI();
+  renderPG();
+}
+
+function navigatePG(dir) {
+  currentPGIndex = Math.max(0, Math.min(pgOrder.length - 1, currentPGIndex + dir));
+  renderPG();
+  document.getElementById('section-pg').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function shuffleQuestions() {
+  for (let i = pgOrder.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [pgOrder[i], pgOrder[j]] = [pgOrder[j], pgOrder[i]];
+  }
+  currentPGIndex = 0;
+  renderPG();
+}
+
+function updateScoreUI() {
+  const total = correctCount + wrongCount;
+  const pct = total > 0 ? Math.round((correctCount / total) * 100) : 0;
+  const dashOffset = 264 - (264 * pct / 100);
+
+  document.getElementById('scorePercent').textContent = pct + '%';
+  document.getElementById('sideCorrect').textContent = correctCount;
+  document.getElementById('sideWrong').textContent = wrongCount;
+  document.getElementById('scoreCircle').style.strokeDashoffset = dashOffset;
+  document.getElementById('headerScore').textContent = `${correctCount + wrongCount}/${pgData.length}`;
+  document.getElementById('headerCorrect').textContent = correctCount;
+  document.getElementById('headerWrong').textContent = wrongCount;
+}
+
+// ═══════════════════════════════════════════════════
+// ESSAY
+// ═══════════════════════════════════════════════════
+function renderEssay() {
+  const container = document.getElementById('essayContainer');
+  container.innerHTML = essayData.map((e, i) => `
+    <div class="essay-card" id="essay-${i}">
+      <div class="essay-header" onclick="toggleEssay(${i})">
+        <div class="essay-num">${String(i + 1).padStart(2, '0')}.</div>
+        <div>
+          <div class="essay-q-text">${e.q}</div>
+          <div class="essay-q-meta">
+            <span class="q-topic">${e.topic}</span>
+            <span class="q-pasal">${e.pasal}</span>
+          </div>
+        </div>
+        <div class="essay-toggle">▼</div>
+      </div>
+      <div class="essay-body">
+        <div class="essay-answer">
+          <div class="essay-answer-label">✦ Jawaban Model</div>
+          <div class="essay-answer-text">${e.answer}</div>
+          <div class="essay-pasal-ref">📖 Dasar Pasal: ${e.pasal}</div>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function toggleEssay(i) {
+  const card = document.getElementById('essay-' + i);
+  card.classList.toggle('open');
+}
+
+// ═══════════════════════════════════════════════════
+// STUDI KASUS
+// ═══════════════════════════════════════════════════
+function renderKasus() {
+  const container = document.getElementById('kasusContainer');
+  container.innerHTML = kasusData.map((k, i) => `
+    <div class="case-card">
+      <div class="case-header">
+        <div class="case-id">${k.id} · Studi Kasus ${i + 1}</div>
+        <div class="case-title">${k.title}</div>
+        <div class="case-tags">${k.tags.map(t => `<span class="case-tag">${t}</span>`).join('')}</div>
+      </div>
+      <div class="case-body">
+        <div class="case-scenario">${k.scenario}</div>
+        <div class="case-question">❓ ${k.question}</div>
+        <button class="btn-analyze" onclick="toggleAnalysis(${i})">
+          <span>⚖️</span> Analisis Jawaban
+        </button>
+        <div class="case-analysis" id="analysis-${i}">
+          <div class="analysis-grid">
+            <div class="analysis-item">
+              <div class="analysis-item-label">Pihak Debitur</div>
+              <div class="analysis-item-val">${k.debitur}</div>
+            </div>
+            <div class="analysis-item">
+              <div class="analysis-item-label">Pihak Kreditur</div>
+              <div class="analysis-item-val">${k.kreditur}</div>
+            </div>
+            <div class="analysis-item" style="grid-column: 1 / -1">
+              <div class="analysis-item-label">Bentuk Permasalahan Hukum</div>
+              <div class="analysis-item-val">${k.bentukWanprestasi}</div>
+            </div>
+          </div>
+          <div class="analysis-section">
+            <div class="analysis-section-title">🔍 Analisis Hukum</div>
+            <div class="analysis-section-text">${k.analisis}</div>
+          </div>
+          <div class="analysis-section">
+            <div class="analysis-section-title">✅ Solusi Hukum</div>
+            <div class="analysis-section-text">${k.solusi}</div>
+          </div>
+          <div class="analysis-section">
+            <div class="analysis-section-title">📖 Pasal-Pasal Terkait</div>
+            <div class="pasal-list">${k.pasals.map(p => `<span class="pasal-badge">${p}</span>`).join('')}</div>
+          </div>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function toggleAnalysis(i) {
+  const el = document.getElementById('analysis-' + i);
+  el.classList.toggle('show');
+  const btn = el.previousElementSibling;
+  btn.textContent = el.classList.contains('show') ? '🔼 Sembunyikan Analisis' : '⚖️ Analisis Jawaban';
+  if (el.classList.contains('show')) {
+    btn.innerHTML = '<span>🔼</span> Sembunyikan Analisis';
+  } else {
+    btn.innerHTML = '<span>⚖️</span> Analisis Jawaban';
+  }
+}
+
+// ═══════════════════════════════════════════════════
+// SEARCH
+// ═══════════════════════════════════════════════════
+function handleSearch(val) {
+  const v = val.toLowerCase().trim();
+  if (!v) {
+    document.querySelectorAll('.quiz-card, .essay-card, .case-card').forEach(el => el.style.display = '');
+    return;
+  }
+  document.querySelectorAll('.quiz-card').forEach(el => {
+    const text = el.textContent.toLowerCase();
+    el.style.display = text.includes(v) ? '' : 'none';
+  });
+  document.querySelectorAll('.essay-card').forEach(el => {
+    const text = el.textContent.toLowerCase();
+    el.style.display = text.includes(v) ? '' : 'none';
+  });
+  document.querySelectorAll('.case-card').forEach(el => {
+    const text = el.textContent.toLowerCase();
+    el.style.display = text.includes(v) ? '' : 'none';
+  });
+}
+
+// ═══════════════════════════════════════════════════
+// POPUP
+// ═══════════════════════════════════════════════════
+function showFinishPopup() {
+  const total = correctCount + wrongCount;
+  const pct = total > 0 ? Math.round((correctCount / total) * 100) : 0;
+
+  document.getElementById('popupScore').textContent = pct + '%';
+  document.getElementById('popupCorrect').textContent = correctCount;
+  document.getElementById('popupWrong').textContent = wrongCount;
+  document.getElementById('popupTotal').textContent = total;
+
+  let icon = '📚', title = 'Terus Belajar!', motivation = '';
+  if (pct >= 90) {
+    icon = '🏆'; title = 'Luar Biasa!';
+    motivation = '"Anda telah menunjukkan pemahaman hukum yang sangat mendalam. Calon sarjana hukum yang gemilang!"';
+  } else if (pct >= 75) {
+    icon = '⭐'; title = 'Sangat Baik!';
+    motivation = '"Pemahaman yang solid. Pelajari kembali soal-soal yang masih keliru dan Anda siap menghadapi ujian!"';
+  } else if (pct >= 60) {
+    icon = '💪'; title = 'Cukup Baik!';
+    motivation = '"Fondasi sudah ada. Fokus pada topik yang masih lemah, terutama pasal-pasal kunci KUHPerdata."';
+  } else if (pct >= 40) {
+    icon = '📖'; title = 'Perlu Belajar Lebih!';
+    motivation = '"Baca kembali materi Hukum Perikatan dari awal, terutama syarat sah perjanjian dan hapusnya perikatan."';
+  } else {
+    icon = '🎯'; title = 'Mari Kita Mulai Lagi!';
+    motivation = '"Setiap pakar hukum pun pernah berada di posisi ini. Baca materinya, kerjakan lagi, dan jangan menyerah!"';
+  }
+
+  document.getElementById('popupIcon').textContent = icon;
+  document.getElementById('popupTitle').textContent = title;
+  document.getElementById('popupMotivation').textContent = motivation;
+  document.getElementById('popupOverlay').classList.add('show');
+}
+
+function closePopup() {
+  document.getElementById('popupOverlay').classList.remove('show');
+}
+
+// ═══════════════════════════════════════════════════
+// RESET
+// ═══════════════════════════════════════════════════
+function resetAll() {
+  if (!confirm('Reset semua nilai? Progress akan hilang.')) return;
+  answered = new Array(pgData.length).fill(null);
+  correctCount = 0;
+  wrongCount = 0;
+  currentPGIndex = 0;
+  pgOrder = pgData.map((_, i) => i);
+  updateScoreUI();
+  renderPG();
+}
+
+// ═══════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', () => {
+  renderPG();
+  renderEssay();
+  renderKasus();
+  updateScoreUI();
+  startTimer();
+});
+</script>
+</body>
+</html>
